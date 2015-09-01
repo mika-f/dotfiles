@@ -6,7 +6,7 @@ function install_unless_installed() {
   if rpm -qa $1 | grep -q $1; then
     true
   else
-    yum install -y $1
+    sudo yum install -y $1
   fi
 }
 
