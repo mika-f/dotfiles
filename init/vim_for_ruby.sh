@@ -16,7 +16,7 @@ install_unless_installed wget
 cd ~
 wget http://cx4a.org/pub/rsense/rsense-0.3.tar.bz2
 bzip2 -dc rsense-0.3.tar.bz2 | tar xvf -
-udo cp -r rsense-0.3 /usr/local/lib
+sudo cp -r rsense-0.3 /usr/local/lib
 sudo chmod +x /usr/local/lib/rsense-0.3/bin/rsense
 
 rm rsense-0.3.tar.bz2
