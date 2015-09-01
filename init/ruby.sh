@@ -10,10 +10,9 @@ function install_unless_installed() {
   fi
 }
 
-install_unless_installed git
 install_unless_installed gcc
 install_unless_installed make
-install_unless_installed openssl-dvel
+install_unless_installed openssl-devel
 install_unless_installed zlib-devel
 install_unless_installed readline*
 install_unless_installed gcc-c++
