@@ -15,6 +15,7 @@ install_unless_installed make
 install_unless_installed openssl-devel
 install_unless_installed zlib-devel
 install_unless_installed readline*
+install_unless_installed readline-devel
 install_unless_installed gcc-c++
 
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
