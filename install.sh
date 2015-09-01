@@ -8,6 +8,6 @@ for file in .??*
 do
   [[ "$file" == ".git" ]] && continue
 
-  ln -snvf "~/dotfiles/$file" "$HOME/$file"
+  ln -snvf "$HOME/dotfiles/$file" "$HOME/$file"
 done
 
