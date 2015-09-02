@@ -16,12 +16,16 @@ install_unless_installed ncurses-devel
 
 cd ~
 
-git clone https://github.com/vim/vim.git
+# git clone https://github.com/vim/vim.git
+# cd vim
+# git fetch
+# git merge
+hg clone https://vim.googlecode.com/hg vim
 cd vim
-git fetch
-git merge
+hg pull
+hg update
 
-cd src
+# cd src
 make distclean
 ./configure --prefix=/usr/local --with-features=huge --enable-multibyte --enable-rubyinterp --enable-luainterp --enable-cscope --enable-fail-if-missing
 make
