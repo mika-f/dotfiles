@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# VIM Installation & Configuration Script
+# VIM Build, Installation & Configuration Script
+
+# Depend: ruby.sh, install.sh 
 
 function install_unless_installed() {
   if rpm -qa $1 | grep -q $1; then
@@ -11,6 +13,7 @@ function install_unless_installed() {
 }
 
 install_unless_installed git
+install_unless_installed lua
 install_unless_installed lua-devel
 install_unless_installed ncurses-devel
 
@@ -27,7 +30,12 @@ hg update
 
 # cd src
 make distclean
-./configure --prefix=/usr/local --with-features=huge --enable-multibyte --enable-rubyinterp --enable-luainterp --enable-cscope --enable-fail-if-missing
+make clean
+./configure --prefix=/usr/local \
+        --enable-multibyte --with-features=huge \
+        --enable-luainterp --with-lua-prefix=/usr \
+        --enable-rubyinterp=yes \
+        --enable-cscope --enable-fail-if-missing
 make
 sudo make install
 
