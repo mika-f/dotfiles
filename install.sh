@@ -11,3 +11,4 @@ do
   ln -snvf "$HOME/dotfiles/$file" "$HOME/$file"
 done
 
+. ~/.bash_profile
