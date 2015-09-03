@@ -11,6 +11,7 @@ function install_unless_installed() {
 }
 
 install_unless_installed git
+install_unless_installed lua
 install_unless_installed lua-devel
 install_unless_installed ncurses-devel
 
@@ -27,10 +28,15 @@ hg update
 
 # cd src
 make distclean
-./configure --prefix=/usr/local --with-features=huge --enable-multibyte --enable-rubyinterp --enable-luainterp --enable-cscope --enable-fail-if-missing
+make clean
+./configure --prefix=/usr/local \
+        --enable-multibyte --with-features=huge \
+        --enable-luainterp --with-lua-prefix=/usr \
+        --enable-cscope --enable-fail-if-missing
 make
 sudo make install
 
 cd ~
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+
 

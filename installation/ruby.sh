@@ -29,6 +29,7 @@ rbenv install -v 2.1.2
 rbenv rehash
 rbenv global 2.1.2
 
+echo "Install gems : rails, bundler"
 gem install rails
 gem install bundler
 

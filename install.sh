@@ -1,14 +1,35 @@
 #!/bin/sh
+# Installation Script
 
-# Reference: http://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
+echo "============================================================="
+echo " Environment Construction Script for RedHat                  "
+echo "============================================================="
 
 cd ~/dotfiles
 
-for file in .??*
-do
-  [[ "$file" == ".git" ]] && continue
+echo "--------------------------------------"
+echo " Install Ruby Environment             "
+echo "--------------------------------------"
+./installation/ruby.sh
 
-  ln -snvf "$HOME/dotfiles/$file" "$HOME/$file"
-done
+# for rubyinterp of vim
+. ./.bash_profile
 
-. ~/.bash_profile
+
+echo "--------------------------------------"
+echo " Install VIM                          "
+echo "--------------------------------------"
+./installation/vim.sh
+
+
+echo "--------------------------------------"
+echo " Post Installation Configuration      "
+echo "--------------------------------------"
+./installation/post_installation.sh
+
+
+echo "--------------------------------------"
+echo " Setting up . files                   "
+echo "--------------------------------------"
+./link.sh
+
