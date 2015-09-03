@@ -1,6 +1,8 @@
 #!/bin/sh
 
-# VIM Installation & Configuration Script
+# VIM Build, Installation & Configuration Script
+
+# Depend: ruby.sh, install.sh 
 
 function install_unless_installed() {
   if rpm -qa $1 | grep -q $1; then
@@ -32,6 +34,7 @@ make clean
 ./configure --prefix=/usr/local \
         --enable-multibyte --with-features=huge \
         --enable-luainterp --with-lua-prefix=/usr \
+        --enable-rubyinterp=yes \
         --enable-cscope --enable-fail-if-missing
 make
 sudo make install
