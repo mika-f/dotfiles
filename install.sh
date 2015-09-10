@@ -1,6 +1,7 @@
 #!/bin/sh
 # Installation Script
 
+
 echo "============================================================="
 echo " Environment Construction Script for RedHat                  "
 echo "============================================================="
@@ -8,9 +9,10 @@ echo "============================================================="
 cd ~/dotfiles
 
 echo "--------------------------------------"
-echo " Install Ruby Environment             "
+echo " Install Environment                  "
 echo "--------------------------------------"
 ./installation/ruby.sh
+./installation/php.sh
 
 # for rubyinterp of vim
 . ./.bash_profile
@@ -25,8 +27,8 @@ echo "--------------------------------------"
 echo "--------------------------------------"
 echo " Post Installation Configuration      "
 echo "--------------------------------------"
-./installation/post_installation.sh
-
+./installation/post_installation_ruby.sh
+./installation/post_installation_php.sh
 
 echo "--------------------------------------"
 echo " Setting up . files                   "

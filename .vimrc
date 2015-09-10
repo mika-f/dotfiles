@@ -11,15 +11,16 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 補完機能
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
+NeoBundle 'violetyk/neocomplete-php.vim'        " PHP
+NeoBundle 'marcus/rsense'                       " Ruby
+NeoBundle 'supermomonga/neocomplete-rsense.vim' " Ruby
 
 " 静的解析
 NeoBundle 'scrooloose/syntastic'
 
 " ドキュメント参照
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'
+NeoBundle 'yuku-t/vim-ref-ri'                   " Ruby
 
 " 定義元へジャンプ
 NeoBundle 'szw/vim-tags'
@@ -28,16 +29,23 @@ NeoBundle 'szw/vim-tags'
 NeoBundle 'scrooloose/nerdtree'
 
 " Ruby on Rails 向けコマンドの追加
-NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-rails'                     " Ruby
 
 " Ruby において if などの end の自動入力
-NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-endwise'                   " Ruby
 
 " インデントを見やすく
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " ログファイルのハイライト
 NeoBundle 'vim-scripts/AnsiEsc.vim'
+
+" Unite : see alto -> http://qiita.com/hide/items/77b9c1b0f29577d60397
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'basyura/unite-rails.vim'             " Ruby
+
+" SCSS のシンタックスハイライト
+NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
 
 
 call neobundle#end()
@@ -64,12 +72,22 @@ endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
 " --------------------------------
+" neocomplete-php.vim
+" --------------------------------
+let g:neocomplete_php_locale = 'ja'
+
+" --------------------------------
 " rubocop
 " --------------------------------
 " syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
 " active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+
+" --------------------------------
+" scss-syntax
+" --------------------------------
+au BufRead,BufNewFile *.scss set filetype=sass
 
 " シンタックスハイライト
 syntax on
