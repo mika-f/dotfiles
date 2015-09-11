@@ -18,6 +18,9 @@ NeoBundle 'supermomonga/neocomplete-rsense.vim' " Ruby
 " 静的解析
 NeoBundle 'scrooloose/syntastic'
 
+" コメントアウト/コメント を一発で
+NeoBundle 'scrooloose/nerdcommenter'
+
 " ドキュメント参照
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'                   " Ruby
@@ -35,7 +38,7 @@ NeoBundle 'tpope/vim-rails'                     " Ruby
 NeoBundle 'tpope/vim-endwise'                   " Ruby
 
 " インデントを見やすく
-NeoBundle 'nathanaelkane/vim-indent-guides'
+" NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " ログファイルのハイライト
 NeoBundle 'vim-scripts/AnsiEsc.vim'
@@ -47,6 +50,13 @@ NeoBundle 'basyura/unite-rails'                 " Ruby
 " SCSS のシンタックスハイライト
 NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
 
+" カラースキーム
+" 一応幾つか
+NeoBundle 'NLKNguyen/papercolor-theme'
+NeoBundle 'lyxell/pride.vim'
+NeoBundle 'idbrii/vim-sandydune'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
 
 call neobundle#end()
 filetype plugin indent on
@@ -54,11 +64,13 @@ filetype indent on
 
 NeoBundleCheck
 
+
 " -------------------------------
 " Rsens
 " -------------------------------
 let g:rsenseHome = '/usr/local/lib/rsense-0.3'
 let g:rsenseUseOmniFunc = 1
+
 
 " --------------------------------
 " neocomplete.vim
@@ -71,10 +83,20 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
+
 " --------------------------------
 " neocomplete-php.vim
 " --------------------------------
 let g:neocomplete_php_locale = 'ja'
+
+
+" --------------------------------
+" nerdcommenter
+" --------------------------------
+let NERDSpaceDelims = 1
+nmap cc <Plug>NERDCommenterToggle
+vmap cc <Plug>NERDCommenterToggle
+
 
 " --------------------------------
 " rubocop
@@ -84,10 +106,16 @@ let g:neocomplete_php_locale = 'ja'
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
+
 " --------------------------------
 " scss-syntax
 " --------------------------------
 au BufRead,BufNewFile *.scss set filetype=sass
+
+
+" --------------------------------
+" Basic
+" --------------------------------
 
 " シンタックスハイライト
 syntax on
@@ -120,6 +148,18 @@ set ruler
 " コマンド表示
 set showcmd
 
-let g:indent_guides_enable_on_vim_startup = 1
+" 現在のモードを表示
+set showmode
 
-colorscheme elflord
+" .swap を作らない
+set noswapfile
+
+" 256色で
+" set t_Co=256
+
+" ダークモード
+set background=dark
+
+" カラースキーム
+colorscheme PaperColor 
+
