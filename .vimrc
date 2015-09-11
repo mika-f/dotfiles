@@ -42,7 +42,7 @@ NeoBundle 'vim-scripts/AnsiEsc.vim'
 
 " Unite : see alto -> http://qiita.com/hide/items/77b9c1b0f29577d60397
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'basyura/unite-rails.vim'             " Ruby
+NeoBundle 'basyura/unite-rails'                 " Ruby
 
 " SCSS のシンタックスハイライト
 NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
