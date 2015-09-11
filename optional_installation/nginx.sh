@@ -1,6 +1,7 @@
 #!/bin/sh
 
-# nginx Environment Install Script *Optional
+# nginx Environment Install Script 
+# *Optional
 
 function install_unless_installed() {
   if rpm -qa $1 | grep -q $1; then
@@ -11,8 +12,8 @@ function install_unless_installed() {
 }
 
 if [ ! -e /etc/yum.repos.d/nginx.repo ]; then
-REPO="/etc/yum.repos.d/nginx.repo"
-cat << 'EOS' | sudo tee $REPO
+  REPO="/etc/yum.repos.d/nginx.repo"
+  cat << 'EOS' | sudo tee $REPO
 [nginx]
 name=nginx repo
 baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
