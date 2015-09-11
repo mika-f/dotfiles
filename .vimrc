@@ -155,7 +155,7 @@ set showmode
 set noswapfile
 
 " 256色で
-" set t_Co=256
+set t_Co=256
 
 " ダークモード
 set background=dark
