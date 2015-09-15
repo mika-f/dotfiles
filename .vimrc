@@ -38,7 +38,7 @@ NeoBundle 'tpope/vim-rails'                     " Ruby
 NeoBundle 'tpope/vim-endwise'                   " Ruby
 
 " インデントを見やすく
-" NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " ログファイルのハイライト
 NeoBundle 'vim-scripts/AnsiEsc.vim'
@@ -112,6 +112,16 @@ let g:syntastic_ruby_checkers = ['rubocop']
 " --------------------------------
 au BufRead,BufNewFile *.scss set filetype=sass
 
+" --------------------------------
+" vim indent guides
+" --------------------------------
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=242
+let g:indent_guides_color_change_percent=30
+let g:indent_guides_guide_size =1 
 
 " --------------------------------
 " Basic
@@ -126,7 +136,7 @@ set number
 " タイトル表示
 set title
 
-" タブをスペース4つに
+" タブをスペース2つに
 set tabstop=2
 set expandtab
 set shiftwidth=2
