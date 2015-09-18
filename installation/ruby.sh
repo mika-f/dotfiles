@@ -18,6 +18,9 @@ install_unless_installed readline*
 install_unless_installed readline-devel
 install_unless_installed gcc-c++
 
+echo "--------------------------------------"
+echo "Install rbenv                         "
+
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
 echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
@@ -29,7 +32,8 @@ rbenv install -v 2.1.2
 rbenv rehash
 rbenv global 2.1.2
 
-echo "Install gems : rails, bundler"
+echo "--------------------------------------"
+echo "Install gems : rails, bundler         "
 gem install rails
 gem install bundler
 

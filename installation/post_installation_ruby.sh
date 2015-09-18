@@ -21,6 +21,8 @@ sudo chmod +x /usr/local/lib/rsense-0.3/bin/rsense
 
 rm rsense-0.3.tar.bz2
 
+echo "--------------------------------------"
+echo "Install gem rubocop, refe2            "
 gem install rubocop refe2
 bitclust setup
 
