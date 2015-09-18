@@ -11,4 +11,7 @@ function install_unless_installed() {
 }
 
 install_unless_installed php
+install_unless_installed php-fpm
 
+# Auto launch
+sudo chkcongih php-fpm on
