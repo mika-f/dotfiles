@@ -50,8 +50,20 @@ NeoBundle 'basyura/unite-rails'                 " Ruby
 " SCSS のシンタックスハイライト
 NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
 
+" HTML5 のシンタックスハイライト
+NeoBundle 'othree/html5.vim'                    " HTML5
+
+" CSS3 のシンタックスハイライト
+NeoBundle 'hail2u/vim-css3-syntax'              " CSS3
+
+" JavaScript のシンタックスハイライト
+NeoBundle 'jelera/vim-javascript-syntax'        " JavaScript
+
 " CSS で、カラーコードを見やすく
 NeoBundle 'lilydjwg/colorizer'                  " CSS
+
+" ステータスラインをいい感じにする
+NeoBundle 'itchyny/lightline.vim'
 
 " カラースキーム
 " 一応幾つか
@@ -70,22 +82,18 @@ NeoBundleCheck
 " -------------------------------
 " インデント
 " -------------------------------
-autocmd FileType cs     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType css    setlocal sw=2 sts=2 ts=2 et
-autocmd FileType html   setlocal sw=2 sts=2 ts=2 et
-autocmd FileType php    setlocal sw=4 sts=4 ts=4 et
-autocmd FileType python setlocal sw=4 sts=4 ts=4 et
-autocmd FileType ruby   setlocal sw=2 sts=2 ts=2 et
-autocmd FileType haml   setlocal sw=2 sts=2 ts=2 et
-autocmd FileType sh     setlocal sw=4 sts=4 ts=4 et
-autocmd FileType vim    setlocal sw=2 sts=2 ts=2 et
-autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et
-
-" -------------------------------
-" Rsens
-" -------------------------------
-let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-let g:rsenseUseOmniFunc = 1
+autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
+autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
+autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
 
 
 " --------------------------------
@@ -106,16 +114,15 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 let g:neocomplete_php_locale = 'ja'
 
 
-" --------------------------------
-" nerdcommenter
-" --------------------------------
-let NERDSpaceDelims = 1
-nmap cc <Plug>NERDCommenterToggle
-vmap cc <Plug>NERDCommenterToggle
+" -------------------------------
+" Rsens
+" -------------------------------
+let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+let g:rsenseUseOmniFunc = 1
 
 
 " --------------------------------
-" rubocop
+" syntastic-rubocop
 " --------------------------------
 " syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
 " active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
@@ -124,12 +131,16 @@ let g:syntastic_ruby_checkers = ['rubocop']
 
 
 " --------------------------------
-" scss-syntax
+" nerdcommenter
 " --------------------------------
-au BufRead,BufNewFile *.scss set filetype=sass
+let NERDSpaceDelims = 1
+" c連打で楽しいことになる
+nmap cc <Plug>NERDCommenterToggle 
+vmap cc <Plug>NERDCommenterToggle
+
 
 " --------------------------------
-" vim indent guides
+" vim-indent-guides
 " --------------------------------
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
@@ -138,6 +149,30 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=242
 let g:indent_guides_color_change_percent=30
 let g:indent_guides_guide_size =1 
+
+
+" --------------------------------
+" scss-syntax
+" --------------------------------
+au BufRead,BufNewFile *.scss set filetype=sass
+
+
+" --------------------------------
+" lightline.vim
+" --------------------------------
+set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [['mode', 'paste'],
+      \           ['readonly', 'filename', 'modified']]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"\ud83d\udd12":""}',
+      \   'modified': '%{&modified?"+":&modifiable?"":"-"}'
+      \ },
+      \ }
+
 
 " --------------------------------
 " Basic
