@@ -50,6 +50,9 @@ NeoBundle 'basyura/unite-rails'                 " Ruby
 " SCSS のシンタックスハイライト
 NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
 
+" CSS で、カラーコードを見やすく
+NeoBundle 'lilydjwg/colorizer'                  " CSS
+
 " カラースキーム
 " 一応幾つか
 NeoBundle 'NLKNguyen/papercolor-theme'
@@ -59,11 +62,24 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 
 call neobundle#end()
-filetype plugin indent on
+filetype plugin on
 filetype indent on
 
 NeoBundleCheck
 
+" -------------------------------
+" インデント
+" -------------------------------
+autocmd FileType cs     setlocal sw=4 sts=4 ts=4 et
+autocmd FileType css    setlocal sw=2 sts=2 ts=2 et
+autocmd FileType html   setlocal sw=2 sts=2 ts=2 et
+autocmd FileType php    setlocal sw=4 sts=4 ts=4 et
+autocmd FileType python setlocal sw=4 sts=4 ts=4 et
+autocmd FileType ruby   setlocal sw=2 sts=2 ts=2 et
+autocmd FileType haml   setlocal sw=2 sts=2 ts=2 et
+autocmd FileType sh     setlocal sw=4 sts=4 ts=4 et
+autocmd FileType vim    setlocal sw=2 sts=2 ts=2 et
+autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et
 
 " -------------------------------
 " Rsens
