@@ -50,6 +50,9 @@ NeoBundle 'basyura/unite-rails'                 " Ruby
 " SCSS のシンタックスハイライト
 NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
 
+" CSS で、カラーコードを見やすく
+NeoBundle 'lilydjwg/colorizer'                  " CSS
+
 " カラースキーム
 " 一応幾つか
 NeoBundle 'NLKNguyen/papercolor-theme'
