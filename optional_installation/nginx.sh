@@ -27,5 +27,5 @@ sudo service nginx start
 
 cd ~
 ln -s /usr/share/nginx/html server
-sudo chkcongig nginx on
+sudo chkconfig nginx on
 
