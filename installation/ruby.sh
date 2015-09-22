@@ -27,10 +27,10 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 . ~/.bash_profile
 
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install -v 2.1.2
+rbenv install -v 2.1.7
 
 rbenv rehash
-rbenv global 2.1.2
+rbenv global 2.1.7
 
 echo "--------------------------------------"
 echo "Install gems : rails, bundler         "
