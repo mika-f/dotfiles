@@ -224,3 +224,11 @@ set background=dark
 " カラースキーム
 colorscheme PaperColor 
 
+" --------------------------------
+" Keyboard Mapping
+" --------------------------------
+" nnoremap NewKeyMap OldKeyMap
+nnoremap s <Nop>
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sw <C-w>w
