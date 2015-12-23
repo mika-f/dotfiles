@@ -12,7 +12,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " 補完機能
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'        " PHP
-NeoBundle 'marcus/rsense'                       " Ruby
+" NeoBundle 'marcus/rsense'                       " Ruby
 NeoBundle 'supermomonga/neocomplete-rsense.vim' " Ruby
 
 " 静的解析
@@ -30,6 +30,9 @@ NeoBundle 'szw/vim-tags'
 
 " :NERDTREE コマンドで、ファイルツリーの表示 ～ Enterなどでオープン
 NeoBundle 'scrooloose/nerdtree'
+
+" Ruby
+NeoBundle 'vim-ruby/vim-ruby'                   " Ruby
 
 " Ruby on Rails 向けコマンドの追加
 NeoBundle 'tpope/vim-rails'                     " Ruby
@@ -62,6 +65,12 @@ NeoBundle 'jelera/vim-javascript-syntax'        " JavaScript
 " CSS で、カラーコードを見やすく
 NeoBundle 'lilydjwg/colorizer'                  " CSS
 
+" TypeScript 
+NeoBundle 'leafgarland/typescript-vim'          " TypeScript
+
+" TypeScript の補完
+NeoBundle 'clausreinke/typescript-tools.vim'    " TypeScript
+
 " ステータスラインをいい感じにする
 NeoBundle 'itchyny/lightline.vim'
 
@@ -85,12 +94,13 @@ NeoBundleCheck
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
 autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType typescript setlocal sw=4 sts=4 ts=4 et
 autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
@@ -106,7 +116,7 @@ if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
+let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
 
 " --------------------------------
 " neocomplete-php.vim
@@ -115,10 +125,10 @@ let g:neocomplete_php_locale = 'ja'
 
 
 " -------------------------------
-" Rsens
+" Rsense
 " -------------------------------
-let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-let g:rsenseUseOmniFunc = 1
+" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+" let g:rsenseUseOmniFunc = 1
 
 
 " --------------------------------
