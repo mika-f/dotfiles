@@ -9,73 +9,72 @@ endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" 補完機能
+" Auto Complete
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'        " PHP
-" NeoBundle 'marcus/rsense'                       " Ruby
+NeoBundle 'marcus/rsense'                       " Ruby
 NeoBundle 'supermomonga/neocomplete-rsense.vim' " Ruby
 
-" 静的解析
+" Static code analysis
 NeoBundle 'scrooloose/syntastic'
 
-" コメントアウト/コメント を一発で
+" Commentout
 NeoBundle 'scrooloose/nerdcommenter'
 
-" ドキュメント参照
+" Ref Documents
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'yuku-t/vim-ref-ri'                   " Ruby
 
-" 定義元へジャンプ
+" Jump to definition
 NeoBundle 'szw/vim-tags'
 
-" :NERDTREE コマンドで、ファイルツリーの表示 ～ Enterなどでオープン
+" Open FileTree by :NERDTREE.
 NeoBundle 'scrooloose/nerdtree'
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'                   " Ruby
 
-" Ruby on Rails 向けコマンドの追加
+" Ruby on Rails Commands
 NeoBundle 'tpope/vim-rails'                     " Ruby
 
-" Ruby において if などの end の自動入力
+" if - end
 NeoBundle 'tpope/vim-endwise'                   " Ruby
 
-" インデントを見やすく
+" Indent Guide
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
-" ログファイルのハイライト
+" Syntax Highlight - .log
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 
 " Unite : see alto -> http://qiita.com/hide/items/77b9c1b0f29577d60397
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'basyura/unite-rails'                 " Ruby
 
-" SCSS のシンタックスハイライト
+" Syntax Highlight - SCSS
 NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
 
-" HTML5 のシンタックスハイライト
+" Syntax Highlight - HTML5
 NeoBundle 'othree/html5.vim'                    " HTML5
 
-" CSS3 のシンタックスハイライト
+" Syntax Highlight - CSS3
 NeoBundle 'hail2u/vim-css3-syntax'              " CSS3
 
-" JavaScript のシンタックスハイライト
+" Syntax Highlight - JavaScript
 NeoBundle 'jelera/vim-javascript-syntax'        " JavaScript
 
-" CSS で、カラーコードを見やすく
+" CSS Color
 NeoBundle 'lilydjwg/colorizer'                  " CSS
 
-" TypeScript 
+" Syntax Highlight- TypeScript 
 NeoBundle 'leafgarland/typescript-vim'          " TypeScript
 
-" TypeScript の補完
+" Auto Complete - TypeScript
 NeoBundle 'clausreinke/typescript-tools.vim'    " TypeScript
 
-" ステータスラインをいい感じにする
+" Beautiful status line
 NeoBundle 'itchyny/lightline.vim'
 
-" カラースキーム
-" 一応幾つか
+" Color schemes
 NeoBundle 'NLKNguyen/papercolor-theme'
 NeoBundle 'lyxell/pride.vim'
 NeoBundle 'idbrii/vim-sandydune'
@@ -89,7 +88,7 @@ filetype indent on
 NeoBundleCheck
 
 " -------------------------------
-" インデント
+" Indents 
 " -------------------------------
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
@@ -134,8 +133,6 @@ let g:neocomplete_php_locale = 'ja'
 " --------------------------------
 " syntastic-rubocop
 " --------------------------------
-" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
-" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 
@@ -144,7 +141,6 @@ let g:syntastic_ruby_checkers = ['rubocop']
 " nerdcommenter
 " --------------------------------
 let NERDSpaceDelims = 1
-" c連打で楽しいことになる
 nmap cc <Plug>NERDCommenterToggle 
 vmap cc <Plug>NERDCommenterToggle
 
@@ -155,8 +151,8 @@ vmap cc <Plug>NERDCommenterToggle
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_start_level=2
 let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=239
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=242
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=244
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=248
 let g:indent_guides_color_change_percent=30
 let g:indent_guides_guide_size =1 
 
@@ -188,50 +184,53 @@ let g:lightline = {
 " Basic
 " --------------------------------
 
-" シンタックスハイライト
+" enable: syntax highlight
 syntax on
 
-" 行番号表示
+" enable: line number
 set number
 
-" タイトル表示
+" enable: title
 set title
 
-" タブをスペース2つに
+" enable: tab to space
 set tabstop=2
 set expandtab
 set shiftwidth=2
 
-" インデント
+" enable: smartindent / autoindent
 set smartindent
 set autoindent
 
-" 回り込み
+" 
 set virtualedit=block
 set whichwrap=b,s,[,],<,>
 
-" バックスペース
+" enable: backspace
 set backspace=indent,eol,start
 
-" ルーラー
+" enable: ruler
 set ruler
 
-" コマンド表示
+" enable: show command
 set showcmd
 
-" 現在のモードを表示
+" enable: show current mode
 set showmode
 
-" .swap を作らない
+" enable: do not create .swap
 set noswapfile
 
-" 256色で
+" enable: 256 colors.
 set t_Co=256
 
-" ダークモード
+" enable: dark theme
 set background=dark
 
-" カラースキーム
+" enable: auto reload
+set autoread
+
+" 
 colorscheme PaperColor 
 
 " --------------------------------
