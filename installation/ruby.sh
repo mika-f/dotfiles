@@ -32,8 +32,10 @@ rbenv install 2.1.7 -v
 rbenv rehash
 rbenv global 2.1.7
 
+ruby -v
+
 echo "--------------------------------------"
 echo "Install gems : rails, bundler         "
-gem install rails
-gem install bundler
+gem install rails --no-ri --no-rdoc
+gem install bundler --no-ri --no-rdoc
 
