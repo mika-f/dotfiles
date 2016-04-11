@@ -14,4 +14,4 @@ install_unless_installed php
 install_unless_installed php-fpm
 
 # Auto launch
-sudo chkcongih php-fpm on
+sudo chkconfig php-fpm on
