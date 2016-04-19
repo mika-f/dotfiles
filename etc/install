@@ -37,7 +37,7 @@ die() {
 dotfiles_download() {
   print_header "Downloading dotfiles from GitHub..."
   if is_installed "git"; then
-    git clone https://fuyuno@bitbucket.org/fuyuno/dotfiles.git "$DOTPATH"
+    git clone https://github.com/fuyuno/dotfiles.git "$DOTPATH"
   elif is_installed "curl" || is_installed "wget" ; then
     if is_installed "curl" ; then
       curl -L -O https://github.com/fuyuno/dotfiles/archive/master.tar.gz
