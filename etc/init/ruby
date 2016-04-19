@@ -1,0 +1,44 @@
+#!/bin/bash
+
+. "$DOTPATH"/etc/install -l
+. "$DOTPATH"/etc/lib/ask
+. "$DOTPATH"/etc/lib/package
+
+print_header "Install Ruby with rbenv"
+
+# Build Essentials
+print_info "Install build tools..."
+
+install gcc
+install make
+install openssl-devel
+install zlib-devel
+install readline*
+install readline-devel
+install gcc-c++
+
+
+# rbenv
+print_info "Install rbenv"
+
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+. ~/.bash_profile
+
+
+# Ruby
+print_info "Install Ruby"
+
+rbenv install 2.1.7 -v
+rbenv rehash
+rbenv global 2.1.7
+ruby -v
+
+if ask "Install bundler gem?"; then
+  gem install bundler --no-ri --no-rdoc
+fi
+
+print_success "Ruby has been installed."
+

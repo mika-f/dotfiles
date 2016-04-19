@@ -1,0 +1,17 @@
+#!/bin/bash
+
+. "$DOTPATH"/etc/install -l
+
+install() {
+  if [ -n "$(command -v yum &>/dev/null 2>1)" ]; then
+    print_info "Install $1 with yum"
+    sudo yum install -y $1
+  elif [ -n "$(command -v apt-get &>/dev/null 2>1)" ]; then
+    print_info "Install $1 with apt"
+    sudo apt-get install -y $1
+  else
+    print_failure "yum or apt is not installed."
+    die
+  fi
+}
+

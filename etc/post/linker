@@ -1,0 +1,10 @@
+#!/bin/bash
+
+for file in .??*; do
+  if ["$file" == ".git" ]; then
+    continue
+  fi
+  ln -snvf "$DOTPATH/$file" "$HOME/$file"
+done
+
+source ~/.bash_profile

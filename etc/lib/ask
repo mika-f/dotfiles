@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ask() {
+  local answer
+  printf "%s [y/N]: " "$1"
+  read answer
+
+  case "$answer" in
+    y|Y|yes|YES)
+      return 0 
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+
