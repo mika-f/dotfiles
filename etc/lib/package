@@ -10,7 +10,7 @@ install() {
     print_info "Install $1 with apt"
     sudo apt-get install -y $1
   else
-    print_failure "yum or apt is not installed."
+    print_error "yum or apt is not installed."
     die
   fi
 }
