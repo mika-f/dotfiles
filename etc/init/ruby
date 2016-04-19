@@ -36,9 +36,9 @@ rbenv rehash
 rbenv global 2.1.7
 ruby -v
 
-if ask "Install bundler gem?"; then
+# if ask "Install bundler gem?"; then
   gem install bundler --no-ri --no-rdoc
-fi
+# fi
 
 print_success "Ruby has been installed."
 
