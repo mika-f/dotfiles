@@ -16,7 +16,7 @@ install zlib-devel
 install readline*
 install readline-devel
 install gcc-c++
-
+install bzip2
 
 # rbenv
 print_info "Install rbenv"
