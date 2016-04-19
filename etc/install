@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 if test "$DOTPATH" = ""; then
   DOTPATH=~/dotfiles; export DOTPATH
