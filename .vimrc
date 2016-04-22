@@ -77,6 +77,9 @@ NeoBundle 'kchmck/vim-coffee-script'            " CoffeeScript
 " ステータスラインをいい感じにする
 NeoBundle 'itchyny/lightline.vim'
 
+" Emmet
+NeoBundle 'mattn/emmet-vim'
+
 " カラースキーム
 " 一応幾つか
 NeoBundle 'NLKNguyen/papercolor-theme'
