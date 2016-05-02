@@ -13,7 +13,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'violetyk/neocomplete-php.vim'        " PHP
 " NeoBundle 'marcus/rsense'                       " Ruby
-NeoBundle 'supermomonga/neocomplete-rsense.vim' " Ruby
+" NeoBundle 'supermomonga/neocomplete-rsense.vim' " Ruby
 
 " 静的解析
 NeoBundle 'scrooloose/syntastic'
@@ -74,13 +74,18 @@ NeoBundle 'clausreinke/typescript-tools.vim'    " TypeScript
 " CoffeeScript 拡張
 NeoBundle 'kchmck/vim-coffee-script'            " CoffeeScript
 
+" nginx 拡張
+NeoBundle 'subosito/nginx.vim'                  " nginx
+
 " ステータスラインをいい感じにする
 NeoBundle 'itchyny/lightline.vim'
+
+NeoBundle 'mattn/emmet-vim'
 
 " カラースキーム
 " 一応幾つか
 NeoBundle 'NLKNguyen/papercolor-theme'
-NeoBundle 'lyxell/pride.vim'
+" NeoBundle 'lyxell/pride.vim'
 NeoBundle 'idbrii/vim-sandydune'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -104,7 +109,7 @@ autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
 autocmd FileType typescript setlocal sw=4 sts=4 ts=4 et
-autocmd FileType sh         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
 
@@ -187,6 +192,10 @@ let g:lightline = {
       \ },
       \ }
 
+" --------------------------------
+" Emmet-vim
+" -------------------------------- 
+let g:user_emmet_leader_key='<C-e>' " Ctrl + E + , で変換
 
 " --------------------------------
 " Basic
