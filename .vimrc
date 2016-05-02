@@ -80,6 +80,7 @@ NeoBundle 'subosito/nginx.vim'                  " nginx
 " ステータスラインをいい感じにする
 NeoBundle 'itchyny/lightline.vim'
 
+" Emmet
 NeoBundle 'mattn/emmet-vim'
 
 " カラースキーム
