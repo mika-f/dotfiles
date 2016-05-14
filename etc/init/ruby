@@ -31,9 +31,9 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 # Ruby
 print_info "Install Ruby"
 
-rbenv install 2.1.7 -v
+CONFIGURE_OPTS="--disable-install-rdoc" rbenv install 2.2.2 -v
 rbenv rehash
-rbenv global 2.1.7
+rbenv global 2.2.2
 ruby -v
 
 # if ask "Install bundler gem?"; then
