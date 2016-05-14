@@ -34,6 +34,10 @@ die() {
   exit 1
 }
 
+finish() {
+  exit 0
+}
+
 dotfiles_download() {
   print_header "Downloading dotfiles from GitHub..."
   if is_installed "git"; then
@@ -85,11 +89,11 @@ done
 
 if [ "$LINKER" = 1 ]; then
   dotfiles_link
-  return 
+  finish 
 fi
 
 if [ "$LIBRARY" = 1 ]; then
-  return
+  finish
 fi
 
 dotfiles_download
