@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd "$DOTPATH"
+
 for file in .??*; do
   if [[ "$file" == ".git" ]]; then
     continue
