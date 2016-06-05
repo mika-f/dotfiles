@@ -77,6 +77,9 @@ NeoBundle 'kchmck/vim-coffee-script'            " CoffeeScript
 " nginx 拡張
 NeoBundle 'subosito/nginx.vim'                  " nginx
 
+" Slim 拡張
+NeoBundle 'slim-template/vim-slim'              " Slim
+
 " ステータスラインをいい感じにする
 NeoBundle 'itchyny/lightline.vim'
 
