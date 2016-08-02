@@ -8,19 +8,16 @@ print_header "Install vim (custom build)"
 # Build Essentials
 print_info "Install build tools..."
 
-install lua
-install lua-devel
-install ncurses-devel
-install hg
+install lua lua5.1
+install lua-devel liblua5.1-dev
+install ncurses-devel libncurses5-dev
 
 
 print_info "Pulling vim sources from Google Code."
 
-hg clone https://vim.googlecode.com/hg vim
+git clone https://github.com/vim/vim.git
 cd vim
-hg pull
-hg update
-
+git pull
 
 print_info "Building..."
 

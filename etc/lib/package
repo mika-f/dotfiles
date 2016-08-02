@@ -2,13 +2,21 @@
 
 . "$DOTPATH"/etc/install -l
 
+# install arg1 [arg2]
+# arg1 : Package name (RHEL - yum)
+# arg2 : Package name (Debian - apt)
+# 
 install() {
   if [ -n "$(command -v yum)" ]; then
     print_info "Install $1 with yum"
     sudo yum install -y $1
   elif [ -n "$(command -v apt-get)" ]; then
-    print_info "Install $1 with apt"
-    sudo apt-get install -y $1
+    p=$1 
+    if [ $# = 2 ]; then
+      p=$2 
+    fi 
+    print_info "Install ${p} with apt"
+    sudo apt-get install -y ${p} 
   else
     print_error "yum or apt is not installed."
     die
