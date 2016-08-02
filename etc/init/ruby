@@ -11,12 +11,26 @@ print_info "Install build tools..."
 
 install gcc
 install make
-install openssl-devel
-install zlib-devel
-install readline*
-install readline-devel
-install gcc-c++
+install gcc-c++ g++
 install bzip2
+# ruby-build suggested build environment
+install openssl-devel libssl-dev
+install libyaml-devel libyaml-dev
+install libffi-devel libffi-dev
+install ncurses-devel libnucurses5-dev
+install readline-devel libreadline6-dev
+install gdbm-devel libgdbm-dev
+install zlib-devel zlib1g-dev
+
+if [ -n "$(command -v yum)" ]; then
+  install readline-devel
+  install zlib-devel
+else
+  install autoconf
+  install bison
+  install build-essential
+  install libgdbm3
+fi
 
 # rbenv
 print_info "Install rbenv"
@@ -31,9 +45,9 @@ echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
 # Ruby
 print_info "Install Ruby"
 
-CONFIGURE_OPTS="--disable-install-rdoc" rbenv install 2.2.2 -v
+CONFIGURE_OPTS="--disable-install-rdoc" rbenv install 2.3.1 -v
 rbenv rehash
-rbenv global 2.2.2
+rbenv global 2.3.1
 ruby -v
 
 # if ask "Install bundler gem?"; then

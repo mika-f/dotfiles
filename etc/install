@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if test "$DOTPATH" = ""; then
   DOTPATH=~/dotfiles; export DOTPATH
 fi
@@ -63,13 +62,13 @@ dotfiles_download() {
 
 dotfiles_install() {
   print_header "Install dotfiles..."
-  bash "$DOTPATH"/etc/init/init.sh
+  bash -x "$DOTPATH"/etc/init/init.sh
   print_done "Install"
 }
 
 dotfiles_link() {
   print_header "Linking .??* files..."
-  bash "$DOTPATH"/etc/post/linker
+  bash -x "$DOTPATH"/etc/post/linker
   print_done "Link" 
 }
 
@@ -89,13 +88,23 @@ done
 
 if [ "$LINKER" = 1 ]; then
   dotfiles_link
-  finish 
+  if [ ! $0 = "$DOTPATH"/etc/install ]; then
+    return
+  else
+    finish 
+  fi
 fi
 
 if [ "$LIBRARY" = 1 ]; then
-  finish
+  if [ ! $0 = "$DOTPATH"/etc/install ]; then
+    return
+  else
+    finish
+  fi
 fi
 
-dotfiles_download
+if [ ! -e "$DOTPATH" ]; then
+  dotfiles_download
+fi
 dotfiles_install
 dotfiles_link

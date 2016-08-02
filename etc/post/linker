@@ -6,6 +6,7 @@ for file in .??*; do
   if [[ "$file" == ".git" ]]; then
     continue
   fi
+  mv "$HOME/$file" "$HOME/$file.orig"
   ln -snvf "$DOTPATH/$file" "$HOME/$file"
 done
 
