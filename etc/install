@@ -62,13 +62,13 @@ dotfiles_download() {
 
 dotfiles_install() {
   print_header "Install dotfiles..."
-  bash -"$DOTPATH"/etc/init/init.sh
+  bash "$DOTPATH"/etc/init/init.sh
   print_done "Install"
 }
 
 dotfiles_link() {
   print_header "Linking .??* files..."
-  bash -"$DOTPATH"/etc/post/linker
+  bash "$DOTPATH"/etc/post/linker
   print_done "Link" 
 }
 
