@@ -11,5 +11,5 @@ if is_installed "git"; then
 fi
 
 install git
-print_success "Git client has been installed."
+print_done "Git client has been installed."
 
