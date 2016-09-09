@@ -32,7 +32,7 @@ make clean
 make
 
 
-print_info "Install"
+print_done "Install"
 
 sudo make install
 
