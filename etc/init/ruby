@@ -54,5 +54,5 @@ ruby -v
   gem install bundler --no-ri --no-rdoc
 # fi
 
-print_success "Ruby has been installed."
+print_done "Ruby has been installed."
 
