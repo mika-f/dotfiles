@@ -1,7 +1,16 @@
 [user]
-	name = Mikazuki Fuyuno
-	email = mikazuki_fuyuno@outlook.com
-[core]
-	editor = vim
-	autocrlf = input
+  name = Mikazuki Fuyuno
+  email = mikazuki_fuyuno@outlook.com
 
+[color]
+  ui = auto
+
+[core]
+  editor = vim
+  autocrlf = input
+
+[diff]
+  tool = vimdiff
+
+[push]
+  default = simple

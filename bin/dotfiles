@@ -1,0 +1,70 @@
+#!/bin/bash
+
+declare -r DOTFILES_ROOT="~/.dotfiles"
+declare -r DOTFILES_REPOSITORY="https://github.com/fuyuno/dotfiles.git"
+declare -r DOTFILES_TARBALL="https://github.com/fuyuno/dotfiles/archive/master.tar.gz"
+
+# ----------------------------
+# Helpers
+# ----------------------------
+exists() {
+    type "$1" > /dev/null 2>&1
+    return $?
+}
+
+print_header() {
+    printf " \033[37;1m%s\033[m\n" "$*"
+}
+
+print_error() {
+    printf " \033[31m%s\033[m\n" "✖ $*" 1>&2
+}
+
+print_done() {
+    printf " \033[37;1m%s\033[m\n" "✔ $*"
+}
+
+print_info() {
+    printf " \033[36m%s\033[m\n" "$*"
+}
+
+download() {
+    print_header "Downloading fuyuno/dotfiles"
+    if [ -d "$DOTFILES_ROOT" ]; then
+        print_info "Already downloaded. Skip download"
+        return
+    fi
+    
+    if exists "git"; then
+        # Git has been installed.
+        git clone "$DOTFILES_REPOSITORY" "$DOTFILES_ROOT"
+    elif [ exists "curl" || exists "wget" ]; then
+        if exists "curl"; then
+            curl -L -O "$DOTFILES_TARBALL"
+        else
+            wget -O - "$DOTFILES_TARBALL"
+        fi
+        tar xvf master.tar.gz
+        mv "dotfiles-master" "$DOTFILES_ROOT"
+    else
+        print_error "git, curl or wget is required."
+        exit 1
+    fi
+    print_done "Downloaded"
+}
+
+install() {
+    . "$DOTFILES_ROOT/lib/helpers.sh"
+}
+
+# ----------------------------
+# Main
+# ----------------------------
+
+# Usage: dotfiles [install|update]
+main() {
+    download
+    install
+}
+
+main "$@"
