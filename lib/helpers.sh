@@ -28,8 +28,8 @@ print_warning() {
     print_color "$1" "!" 3
 }
 
-print_blue() {
-    print_color "$1" " " 4
+print_header() {
+    print_color "$1" "*" 4
 }
 
 print_magenta() {

@@ -12,26 +12,26 @@ exists() {
     return $?
 }
 
-print_header() {
-    printf " \033[37;1m%s\033[m\n" "$*"
+_header() {
+    printf "  \033[34m[*] %s\033[m\n" "$1"
 }
 
-print_error() {
-    printf " \033[31m%s\033[m\n" "✖ $*" 1>&2
+_error() {
+    printf "  \033[31m[✖] %s\033[m\n" "$*"
 }
 
-print_done() {
-    printf " \033[37;1m%s\033[m\n" "✔ $*"
+_done() {
+    printf "  \033[32m[✔] %s\033[m\n" "$1"
 }
 
-print_info() {
-    printf " \033[36m%s\033[m\n" "$*"
+_info() {
+    printf "  \033[36m[i] %s\033[m\n" "$1"
 }
 
 download() {
-    print_header "Downloading fuyuno/dotfiles"
+    _header "Downloading fuyuno/dotfiles"
     if [ -d "$DOTFILES_ROOT" ]; then
-        print_info "Already downloaded. Skip download"
+        _info "Already downloaded. Skip download"
         return
     fi
     
@@ -47,10 +47,10 @@ download() {
         tar xvf master.tar.gz
         mv "dotfiles-master" "$DOTFILES_ROOT"
     else
-        print_error "git, curl or wget is required."
+        _error "git, curl or wget is required."
         exit 1
     fi
-    print_done "Downloaded"
+    _done "Downloaded"
 }
 
 install() {

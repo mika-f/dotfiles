@@ -46,5 +46,7 @@ You can install below softwares/components as optional.
 ## Thanks
 
 * [@b4b4r07's dotfiles](https://github.com/b4b4r07/dotfiles)
-*
+* [Cătălin’s dotfiles ](https://github.com/alrra/dotfiles)
+
+
 
