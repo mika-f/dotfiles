@@ -28,12 +28,12 @@ print_warning() {
     print_color "$1" "!" 3
 }
 
-print_header() {
+print_blue() {
     print_color "$1" "*" 4
 }
 
-print_magenta() {
-    print_color "$1" " " 5
+print_header() {
+    printf "  * \033[36m %s\033[m\n" "$1"
 }
 
 print_info() {
@@ -58,30 +58,36 @@ get_answer() {
 }
 
 print_answer() {
-    if [[ "$ANSWER" =~ ^[Yy]$ ]]; then
+    if get_answer; then
         print "Yes"
     else
         print "No"
     fi
 }
 
+get_os() {
+  local os=""
+  local kernel="$(uname -s)"
+
+  if [ "$kernel" == "Darwin" ]; then
+    os="macos"
+  elif [ "$kernel" == "Linux" ]; then
+    if [ -e "/etc/lsb-release" ]; then
+      os="ubuntu"
+    elif [ -e "/etc/centos-release" ]; then
+      os="centos"
+    else
+      os="$kernel"
+    fi
+  else
+    os="$kernel"
+  fi
+  printf "%s" $os
+}
+
 # cmd_exists "yum"
 cmd_exists() {
     command -v "$1" &> /dev/null
-}
-
-# install "git"
-# install "libyaml-devel" "libyaml-dev"
-install() {
-    if [ cmd_exists "yum" ]; then
-        sodu yum install -y "$1"
-    else
-        if [ $# = 2 ]; then
-            sudo apt-get install -y "$2"
-        else
-            sudo apt-get install -y "$1"
-        fi
-    fi
 }
 
 # link ".gitignore"

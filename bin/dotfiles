@@ -54,7 +54,7 @@ download() {
 }
 
 install() {
-    . "$DOTFILES_ROOT/lib/helpers.sh"
+    ./bin/install/main.sh
 }
 
 # ----------------------------
