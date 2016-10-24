@@ -13,3 +13,5 @@ sudo python /tmp/get-pip.py
 pip install --user git+git://github.com/powerline/powerline
 sudo pip install psutil
 
+export PATH="$HOME/.local/bin:$PATH"
+

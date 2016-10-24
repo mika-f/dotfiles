@@ -1,0 +1,5 @@
+#!/bin/bash
+
+alias tmux="tmux -2"
+alias gdiff="git diff --color --cached"
+
