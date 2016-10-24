@@ -12,12 +12,12 @@ install_package "openssl-devel"
 install_package "zlib-devel"
 install_package "perl-ExtUtils-MakeMaker"
 
-print_info "Compile git client from source"
-cd /usr/local/src
+print_info "Compile git from source"
+cd "/usr/local/src"
 sudo wget "https://www.kernel.org/pub/software/scm/git/git-2.10.1.tar.gz"
-sudo tar xzvf git-2.10.1.tar.gz
+sudo tar xzvf "git-2.10.1.tar.gz"
 
-cd git-2.10.1
+cd "git-2.10.1"
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
 
