@@ -38,7 +38,7 @@ fish shell:
 You can install below softwares/components as optional.
 
 * Ruby (rbenv, bundler)
-* n (Node.js, npm, Yarn, gulp)
+* Node.js (n, npm, Yarn, gulp)
 * GHC (The Glasgow Haskell Compiler)
 * Vim plugins (see `.vimrc`)
 
