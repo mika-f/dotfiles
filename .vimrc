@@ -16,7 +16,7 @@ call dein#add('Shougo/dein.vim')
 if has('lua')
   " Code completion
   call dein#add('Shougo/neocomplete.vim')
-  
+
   " Code Snippets
   call dein#add('Shougo/neosnippet')
   call dein#add('Shougo/neosnippet-snippets')
@@ -33,6 +33,9 @@ call dein#add('Yggdroot/indentLine')
 
 " Powerline
 call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
+
+" Whitespace
+call dein#add('bronson/vim-trailing-whitespace')
 
 " Theme
 call dein#add('NLKNguyen/papercolor-theme')
@@ -93,7 +96,7 @@ au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
 " Line number
 set number
 
-" 
+"
 set ambiwidth=double
 
 " Tab to Space

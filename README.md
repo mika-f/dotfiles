@@ -25,8 +25,9 @@ Vim:
 * dein.vim (Vim plugin manager)
 * Powerline 
 * NERD Commenter
-* Indent Guides
+* indentLine 
 * Emmet
+* vim-trailing-whitespace
 * PaperColor (Theme)
 
 fish shell:
