@@ -25,7 +25,6 @@ sudo ./configure --prefix=/usr/local \
   --enable-luainterp \
   --with-lua-prefix=/usr \
   --enable-pythoninterp \
-  --with-python-prefix=
   --enable-cscope \
   --enable-fail-if-missing
 sudo make

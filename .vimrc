@@ -63,7 +63,26 @@ if !dein#check_install(['neocomplete.vim', 'neosnippet'])
   let g:neocomplete#auto_completion_start_length = 1
 
   imap <expr><CR> neosnippet#expandable() ? '<Plug>(neosnippet_expand_or_jump)' : pumvisible() ? '<C-y>' : '<CR>'
-  imap <expr><TAB> pumvisible() ? '<C-n>' : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : '<TAB>'
+  imap <expr><TAB> pumvisible() ? '<C-n>' : neosnippet#jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<TAB>'
+endif
+
+" ----------------------------
+" nerdcommenter
+" ----------------------------
+let NERDSpaceDelims = 1
+
+nmap cc <Plug>NERDCommenterToggle
+vmap cc <Plug>NERDCommenterToggle
+
+" ----------------------------
+"  Powerline
+"-----------------------------
+if !dein#check_install(['powerline'])
+  " python from powerline.vim import setup as powerline_setup
+  " python powerline_setup()
+  " python del powerline_setup
+
+  let g:Powerline_symbols = 'fancy'
 endif
 
 " ----------------------------
@@ -131,13 +150,16 @@ set ruler
 set showcmd
 
 " Show mode
-set showmode
+set noshowmode
 
 " Show match braces
 set showmatch
 
 " trash .swap
 set noswapfile
+
+"
+set showtabline=2
 
 " 256 colors
 set t_Co=256
