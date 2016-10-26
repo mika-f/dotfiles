@@ -1,8 +1,67 @@
-set nocompatible " be iMproved
 filetype off
+
+" -----------------------------
+"  Dein
+" -----------------------------
+if &compatible
+  set nocompatible " Be iMproved
+endif
+
+set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
+
+call dein#begin('~/.vim')
+call dein#add('Shougo/dein.vim')
+
+" Default
+if has('lua')
+  " Code completion
+  call dein#add('Shougo/neocomplete.vim')
+  
+  " Code Snippets
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+endif
+
+" Comment
+call dein#add('scrooloose/nerdcommenter')
+
+" Emmet
+call dein#add('mattn/emmet-vim')
+
+" Indent
+call dein#add('Yggdroot/indentLine')
+
+" Powerline
+call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
+
+" Theme
+call dein#add('NLKNguyen/papercolor-theme')
+
+" Optional
+
+
+call dein#end()
+
 
 filetype plugin on
 filetype indent on
+syntax enable
+
+if dein#check_install()
+  call dein#install()
+endif
+
+" ----------------------------
+"  neocomplete.vim, neosnippet
+" ----------------------------
+if !dein#check_install(['neocomplete.vim', 'neosnippet'])
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#min_keyword_length = 3
+  let g:neocomplete#auto_completion_start_length = 1
+
+  imap <expr><CR> neosnippet#expandable() ? '<Plug>(neosnippet_expand_or_jump)' : pumvisible() ? '<C-y>' : '<CR>'
+  imap <expr><TAB> pumvisible() ? '<C-n>' : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : '<TAB>'
+endif
 
 " ----------------------------
 "  Indent
@@ -31,10 +90,11 @@ au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
 " ----------------------------
 "  Basic
 " ----------------------------
-syntax on
-
-" 行番号
+" Line number
 set number
+
+" 
+set ambiwidth=double
 
 " Tab to Space
 set tabstop=2
@@ -44,6 +104,15 @@ set shiftwidth=2
 " Indent
 set smartindent
 set autoindent
+
+" Incremental search
+set incsearch
+
+" Highlight search result
+set hlsearch
+
+" Highlight curline
+set cursorline
 
 " 回り込み
 set virtualedit=block
@@ -55,11 +124,14 @@ set backspace=indent,eol,start
 " Ruler
 set ruler
 
-" Command
+" Show cmmand
 set showcmd
 
 " Show mode
 set showmode
+
+" Show match braces
+set showmatch
 
 " trash .swap
 set noswapfile
@@ -72,6 +144,8 @@ set background=dark
 
 " Auto reload
 set autoread
+
+set laststatus=2
 
 " Color Scheme
 colorscheme PaperColor

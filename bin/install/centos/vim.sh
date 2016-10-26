@@ -7,6 +7,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 sudo yum remove -y -q -e 0 vim
 install_package "lua"
 install_package "lua-devel"
+install_package "python"
+install_package "python-devel"
 install_package "ncurses-devel"
 
 print_info "Compile vim from source"
@@ -22,6 +24,8 @@ sudo ./configure --prefix=/usr/local \
   --with-features=huge \
   --enable-luainterp \
   --with-lua-prefix=/usr \
+  --enable-pythoninterp \
+  --with-python-prefix=
   --enable-cscope \
   --enable-fail-if-missing
 sudo make
