@@ -4,6 +4,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "../../../lib/helpers.sh"
 . "./helpers.sh"
 
+print_header "* Git"
+
 sudo yum remove -y -q -e 0 git
 install_package "curl-devel"
 install_package "expat-devel"
@@ -20,4 +22,7 @@ sudo tar xzvf "git-2.10.1.tar.gz"
 cd "git-2.10.1"
 sudo make prefix=/usr/local all
 sudo make prefix=/usr/local install
+
+cd "$(dirname "${BASH_SOURCE[0]}")"
+print_success "Git installed"
 

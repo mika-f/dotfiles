@@ -4,6 +4,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "../../../lib/helpers.sh"
 . "./helpers.sh"
 
+print_header "* Vim"
+
 sudo yum remove -y -q -e 0 vim
 install_package "lua"
 install_package "lua-devel"
@@ -30,4 +32,6 @@ sudo ./configure --prefix=/usr/local \
 sudo make
 sudo make install
 
+cd "$(dirname "${BASH_SOURCE[0]}")"
+print_success "Vim installed"
 
