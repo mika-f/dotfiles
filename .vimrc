@@ -37,6 +37,9 @@ call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
 " Whitespace
 call dein#add('bronson/vim-trailing-whitespace')
 
+" Auto Insert `end`, `#endif` and others.
+call dein#add('tpope/vim-endwise')
+
 " Theme
 call dein#add('NLKNguyen/papercolor-theme')
 
@@ -59,11 +62,21 @@ endif
 " ----------------------------
 if !dein#check_install(['neocomplete.vim', 'neosnippet'])
   let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_smart_case = 1
   let g:neocomplete#min_keyword_length = 3
   let g:neocomplete#auto_completion_start_length = 1
 
-  imap <expr><CR> neosnippet#expandable() ? '<Plug>(neosnippet_expand_or_jump)' : pumvisible() ? '<C-y>' : '<CR>'
-  imap <expr><TAB> pumvisible() ? '<C-n>' : neosnippet#jumpable() ? '<Plug>(neosnippet_expand_or_jump)' : '<TAB>'
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+
+  " inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+  imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neisnippet_expand_or_jump)" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+  if has('conceal')
+    set conceallevel=2 concealcursor=i
+  endif
 endif
 
 " ----------------------------
