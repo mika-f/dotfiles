@@ -2,6 +2,8 @@ dotfiles
 ----
 My macOS, WSL and CentOS dotfiles.
 
+<img width="854" alt="default" src="https://cloud.githubusercontent.com/assets/10832834/19751027/30bbc566-9c31-11e6-9689-bb200d6ee2c9.PNG">
+
 ## Install
 **WARNING:** If you try this dotfiles, you should read the code. Use at your own risk.
 
@@ -23,15 +25,15 @@ dotfiles install below softwares/components.
 
 Vim:
 * dein.vim (Vim plugin manager)
-* Powerline 
+* Powerline
 * NERD Commenter
-* indentLine 
+* indentLine
 * Emmet
 * vim-trailing-whitespace
 * PaperColor (Theme)
 
 fish shell:
-* Oh My Fish! 
+* Oh My Fish!
 * bobthefish (Theme)
 
 
@@ -41,13 +43,11 @@ You can install below softwares/components as optional.
 * Ruby (rbenv, bundler)
 * Node.js (n, npm, Yarn, gulp)
 * GHC (The Glasgow Haskell Compiler)
-* Vim plugins (see `.vimrc`)
 
 
 ## Thanks
 
 * [@b4b4r07's dotfiles](https://github.com/b4b4r07/dotfiles)
 * [Cătălin’s dotfiles ](https://github.com/alrra/dotfiles)
-
 
 
