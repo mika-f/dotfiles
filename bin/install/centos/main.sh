@@ -14,10 +14,12 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 update
 
 print_header "Softwares"
+print_subheader "GNU Utilities"
 install_package "gcc"
 install_package "make"
 install_package "gcc-c++"
 install_package "rsync"
+install_package "wget"
 install_git
 install_vim
 
@@ -26,7 +28,7 @@ install_ruby
 install_node
 
 print_header "UI"
-print_header "tmux"
+print_subheader "tmux"
 install_package "tmux"
 install_fish
 install_powerline

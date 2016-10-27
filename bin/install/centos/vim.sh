@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./helpers.sh"
 
 install_vim() {
-  print_header "* Vim"
+  print_subheader "Vim"
 
   sudo yum remove -y -q -e 0 vim
   install_package "lua"

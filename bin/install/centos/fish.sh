@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./helpers.sh"
 
 install_fish() {
-  print_header "* fish shell"
+  print_subheader "fish shell"
 
   install_repo "http://download.opensuse.org/repositories/shells:fish:release:2/CentOS_7/shells:fish:release:2.repo"
   install_package "fish"

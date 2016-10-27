@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./helpers.sh"
 
 install_powerline() {
-  print_header "* Powerline"
+  print_subheader "Powerline"
 
   curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
   sudo python /tmp/get-pip.py

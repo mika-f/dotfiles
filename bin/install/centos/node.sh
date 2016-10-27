@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./helpers.sh"
 
 install_node() {
-  print_header "* Node.js"
+  print_subheader "Node.js"
 
   ask "Would you install Node.js?"
   if get_answer; then

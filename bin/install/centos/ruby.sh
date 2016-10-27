@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./helpers.sh"
 
 install_ruby() {
-  print_header "* Ruby"
+  print_subheader "Ruby"
 
   ask "Would you install Ruby?"
   if get_answer; then

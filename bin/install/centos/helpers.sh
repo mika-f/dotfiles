@@ -3,14 +3,14 @@
 cd "$(dirname "${BASH_SOURCE[0]}")"
 . "../../../lib/helpers.sh"
 
-# install "git"
+# install_package "git"
 install_package() {
   if is_installed "$1"; then
     print_info "$1 has already installed."
   else
-    print_info "Installing $1..."
+    # print_info "Installing $1..."
     sudo yum install -y -q -e 0 "$1"
-    print_success "$1 install success."
+    # print_success "$1 install success."
   fi
 }
 
