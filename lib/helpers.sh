@@ -97,7 +97,7 @@ cmd_exists() {
 # link ".gitignore"
 link() {
     if [ -f "$HOME/$1" ]; then
-        ask "$1 is already exists, do you want to override it? [yn]"
+        ask "$1 is already exists, do you want to override it?"
         if get_answer; then
             ln -snvf "$DOTFILE_ROOT/$1" "$HOME/$1"
         fi

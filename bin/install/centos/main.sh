@@ -34,3 +34,12 @@ install_package "tmux"
 install_fish
 install_powerline
 
+print_header "Link"
+link ".aliases"
+link ".bashrc"
+link ".config"
+link ".gemrc"
+link ".gitconfig"
+link ".tmux.conf"
+link ".vimrc"
+
