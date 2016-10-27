@@ -4,6 +4,13 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "../../../lib/helpers.sh"
 . "./helpers.sh"
 
+. "./fish.sh"
+. "./git.sh"
+. "./node.sh"
+. "./powerline.sh"
+. "./ruby.sh"
+. "./vim.sh"
+
 update
 
 print_header "Softwares"
@@ -11,15 +18,16 @@ install_package "gcc"
 install_package "make"
 install_package "gcc-c++"
 install_package "rsync"
-./git.sh
-./vim.sh
+install_git
+install_vim
 
 # Optional
-./ruby.sh
+install_ruby
+install_node
 
 print_header "UI"
 print_header "tmux"
 install_package "tmux"
-./fish.sh
-./powerline.sh
+install_fish
+install_powerline
 
