@@ -15,8 +15,8 @@ install_ruby() {
     install_package "readline-devel"
     install_package "gdbm-devel"
 
-    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv > /dev/null 2>&1
+    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build > /dev/null 2>&1
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 

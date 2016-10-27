@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 install_vim() {
   print_subheader "Vim"
 
-  sudo yum remove -y -q -e 0 vim
+  uninstall_package "vim"
   install_package "lua"
   install_package "lua-devel"
   install_package "python"
@@ -16,9 +16,8 @@ install_vim() {
 
   print_info "Compile vim from source"
   cd "/usr/local/src"
-  sudo git clone https://github.com/vim/vim.git
+  sudo git clone https://github.com/vim/vim.git > /dev/null 2>&1
   cd "vim"
-  git pull
 
   sudo make distclean
   sudo make clean

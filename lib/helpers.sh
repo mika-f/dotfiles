@@ -33,11 +33,11 @@ print_blue() {
 }
 
 print_header() {
-    printf "  @ \033[36m%s\033[m\n" "$1"
+    printf "  @ \033[35m%s\033[m\n" "$1"
 }
 
 print_subheader() {
-    printf "    * \033[36m%s\033[m\n" "$1"
+    printf "  * \033[35m%s\033[m\n" "$1"
 }
 
 print_info() {

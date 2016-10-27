@@ -40,11 +40,11 @@ download() {
         git clone "$DOTFILES_REPOSITORY" $DOTFILES_ROOT
     elif exists "curl" || exists "wget"; then
         if exists "curl"; then
-            curl -L -O "$DOTFILES_TARBALL"
+            curl -s -L -O "$DOTFILES_TARBALL"
         else
             wget -O - "$DOTFILES_TARBALL"
         fi
-        tar xvf master.tar.gz
+        tar xzf master.tar.gz
         mv "dotfiles-master" "$DOTFILES_ROOT"
     else
         _error "git, curl or wget is required."

@@ -20,6 +20,7 @@ install_package "make"
 install_package "gcc-c++"
 install_package "rsync"
 install_package "wget"
+install_package "curl"
 install_git
 install_vim
 

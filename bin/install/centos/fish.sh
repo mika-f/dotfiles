@@ -11,7 +11,7 @@ install_fish() {
   install_package "fish"
 
   # Oh! My Fish
-  curl -L http://get.oh-my.fish | fish
+  curl -s -L http://get.oh-my.fish | fish
   echo "omf install bobthefish" | fish
 
   print_success "fish shell installed"

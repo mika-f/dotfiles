@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 install_powerline() {
   print_subheader "Powerline"
 
-  curl -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
+  curl -s -o /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
   sudo python /tmp/get-pip.py
 
   pip install --user git+git://github.com/powerline/powerline
