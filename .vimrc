@@ -182,4 +182,5 @@ nnoremap s <Nop>
 nnoremap sh <C-w>h
 nnoremap sj <C-w>j
 nnoremap tt <C-w>w
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
