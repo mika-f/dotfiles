@@ -92,10 +92,6 @@ vmap cc <Plug>NERDCommenterToggle
 "  Powerline
 "-----------------------------
 if !dein#check_install(['powerline'])
-  " python from powerline.vim import setup as powerline_setup
-  " python powerline_setup()
-  " python del powerline_setup
-
   let g:Powerline_symbols = 'fancy'
 endif
 
@@ -129,8 +125,9 @@ au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
 " Line number
 set number
 
-"
-set ambiwidth=double
+" for Multi-Byte Chars
+" But set to 'double', Powerline collapses.
+" set ambiwidth=double
 
 " Tab to Space
 set tabstop=2
