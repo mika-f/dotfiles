@@ -41,6 +41,9 @@ call dein#add('bronson/vim-trailing-whitespace')
 " Auto Insert `end`, `#endif` and others.
 call dein#add('tpope/vim-endwise')
 
+" Language Pack
+call dein#add('sheerun/vim-polyglot')
+
 " Theme
 call dein#add('NLKNguyen/papercolor-theme')
 
