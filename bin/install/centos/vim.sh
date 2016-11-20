@@ -33,6 +33,11 @@ install_vim() {
   sudo make install
 
   cd "$(dirname "${BASH_SOURCE[0]}")"
+
+  print_info "Install dein.vim"
+  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
+  chmod +x ./installer.sh
+  sh ~/installer.sh ~/.vim > /dev/null 2>&1
   print_success "Vim installed"
 }
 
