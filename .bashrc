@@ -6,3 +6,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+. "$HOME/.aliases"
+
+if [ $TMUX ]; then
+  fish
+fi
+

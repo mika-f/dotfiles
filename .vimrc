@@ -1,108 +1,106 @@
-set nocompatible               " be iMproved
 filetype off
 
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#begin(expand('~/.vim/bundle/'))
+" -----------------------------
+"  Dein
+" -----------------------------
+if &compatible
+  set nocompatible " Be iMproved
 endif
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
 
-" 補完機能
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'violetyk/neocomplete-php.vim'        " PHP
-" NeoBundle 'marcus/rsense'                       " Ruby
-" NeoBundle 'supermomonga/neocomplete-rsense.vim' " Ruby
+call dein#begin('~/.vim')
+call dein#add('Shougo/dein.vim')
 
-" 静的解析
-NeoBundle 'scrooloose/syntastic'
+" Default
+if has('lua')
+  " Code completion
+  call dein#add('Shougo/neocomplete.vim')
 
-" コメントアウト/コメント を一発で
-NeoBundle 'scrooloose/nerdcommenter'
+  " Code Snippets
+  call dein#add('Shougo/neosnippet')
+  call dein#add('Shougo/neosnippet-snippets')
+endif
 
-" ドキュメント参照
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'yuku-t/vim-ref-ri'                   " Ruby
-
-" 定義元へジャンプ
-NeoBundle 'szw/vim-tags'
-
-" :NERDTREE コマンドで、ファイルツリーの表示 ～ Enterなどでオープン
-NeoBundle 'scrooloose/nerdtree'
-
-" Ruby
-NeoBundle 'vim-ruby/vim-ruby'                   " Ruby
-
-" Ruby on Rails 向けコマンドの追加
-NeoBundle 'tpope/vim-rails'                     " Ruby
-
-" Ruby において if などの end の自動入力
-NeoBundle 'tpope/vim-endwise'                   " Ruby
-
-" インデントを見やすく
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
-" ログファイルのハイライト
-NeoBundle 'vim-scripts/AnsiEsc.vim'
-
-" Unite : see alto -> http://qiita.com/hide/items/77b9c1b0f29577d60397
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'basyura/unite-rails'                 " Ruby
-
-" SCSS のシンタックスハイライト
-NeoBundle 'cakebaker/scss-syntax.vim'           " SCSS
-
-" HTML5 のシンタックスハイライト
-NeoBundle 'othree/html5.vim'                    " HTML5
-
-" CSS3 のシンタックスハイライト
-NeoBundle 'hail2u/vim-css3-syntax'              " CSS3
-
-" JavaScript のシンタックスハイライト
-NeoBundle 'jelera/vim-javascript-syntax'        " JavaScript
-
-" CSS で、カラーコードを見やすく
-NeoBundle 'lilydjwg/colorizer'                  " CSS
-
-" TypeScript 
-NeoBundle 'leafgarland/typescript-vim'          " TypeScript
-
-" TypeScript の補完
-NeoBundle 'clausreinke/typescript-tools.vim'    " TypeScript
-
-" CoffeeScript 拡張
-NeoBundle 'kchmck/vim-coffee-script'            " CoffeeScript
-
-" nginx 拡張
-NeoBundle 'subosito/nginx.vim'                  " nginx
-
-" Slim 拡張
-NeoBundle 'slim-template/vim-slim'              " Slim
-
-" ステータスラインをいい感じにする
-NeoBundle 'itchyny/lightline.vim'
+" Comment
+call dein#add('scrooloose/nerdcommenter')
 
 " Emmet
-NeoBundle 'mattn/emmet-vim'
+call dein#add('mattn/emmet-vim')
 
-" カラースキーム
-" 一応幾つか
-NeoBundle 'NLKNguyen/papercolor-theme'
-" NeoBundle 'lyxell/pride.vim'
-NeoBundle 'idbrii/vim-sandydune'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'altercation/vim-colors-solarized'
+" Indent
+call dein#add('Yggdroot/indentLine')
 
-call neobundle#end()
+" Powerline
+call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
+
+" Whitespace
+call dein#add('bronson/vim-trailing-whitespace')
+
+" Auto Insert `end`, `#endif` and others.
+call dein#add('tpope/vim-endwise')
+
+" Language Pack
+call dein#add('sheerun/vim-polyglot')
+
+" Theme
+call dein#add('NLKNguyen/papercolor-theme')
+
+" Optional
+
+
+call dein#end()
+
+
 filetype plugin on
 filetype indent on
+syntax enable
 
-NeoBundleCheck
+if dein#check_install()
+  call dein#install()
+endif
 
-" -------------------------------
-" インデント
-" -------------------------------
+" ----------------------------
+"  neocomplete.vim, neosnippet
+" ----------------------------
+if !dein#check_install(['neocomplete.vim', 'neosnippet'])
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_smart_case = 1
+  let g:neocomplete#min_keyword_length = 3
+  let g:neocomplete#auto_completion_start_length = 1
+
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+
+  " inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+  imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neisnippet_expand_or_jump)" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+  if has('conceal')
+    set conceallevel=2 concealcursor=i
+  endif
+endif
+
+" ----------------------------
+" nerdcommenter
+" ----------------------------
+let NERDSpaceDelims = 1
+
+nmap cc <Plug>NERDCommenterToggle
+vmap cc <Plug>NERDCommenterToggle
+
+" ----------------------------
+"  Powerline
+"-----------------------------
+if !dein#check_install(['powerline'])
+  let g:Powerline_symbols = 'fancy'
+endif
+
+" ----------------------------
+"  Indent
+" ----------------------------
 autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
 autocmd FileType cs         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
@@ -117,148 +115,102 @@ autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
 
+" ----------------------------
+"  File Type
+" ----------------------------
+au BufRead,BufNewFile,BufReadPre *.coffee    set filetype=coffee
+au BufRead,BufNewFile,BufReadPre *.jpbuilder set filetype=ruby
+au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
 
-" --------------------------------
-" neocomplete.vim
-" --------------------------------
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
-
-" --------------------------------
-" neocomplete-php.vim
-" --------------------------------
-let g:neocomplete_php_locale = 'ja'
-
-
-" -------------------------------
-" Rsense
-" -------------------------------
-" let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-" let g:rsenseUseOmniFunc = 1
-
-
-" --------------------------------
-" syntastic-rubocop
-" --------------------------------
-" syntastic_mode_mapをactiveにするとバッファ保存時にsyntasticが走る
-" active_filetypesに、保存時にsyntasticを走らせるファイルタイプを指定する
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
-let g:syntastic_ruby_checkers = ['rubocop']
-
-
-" --------------------------------
-" nerdcommenter
-" --------------------------------
-let NERDSpaceDelims = 1
-" c連打で楽しいことになる
-nmap cc <Plug>NERDCommenterToggle 
-vmap cc <Plug>NERDCommenterToggle
-
-
-" --------------------------------
-" vim-indent-guides
-" --------------------------------
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=244
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=248
-let g:indent_guides_color_change_percent=30
-let g:indent_guides_guide_size =1 
-
-
-" --------------------------------
-" ファイルタイプ
-" --------------------------------
-au BufRead,BufNewFile,BufReadPre *.scss       set filetype=sass
-au BufRead,BufNewFile,BufReadPre *.coffee     set filetype=coffee
-au BufRead,BufNewFile,BufReadPre *.jpbuilder  set filetype=ruby
-
-" --------------------------------
-" lightline.vim
-" --------------------------------
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [['mode', 'paste'],
-      \           ['readonly', 'filename', 'modified']]
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&readonly?"\ud83d\udd12":""}',
-      \   'modified': '%{&modified?"+":&modifiable?"":"-"}'
-      \ },
-      \ }
-
-" --------------------------------
-" Emmet-vim
-" -------------------------------- 
-let g:user_emmet_leader_key='<C-e>' " Ctrl + E + , で変換
-
-" --------------------------------
-" Basic
-" --------------------------------
-
-" シンタックスハイライト
-syntax on
-
-" 行番号表示
+" ----------------------------
+"  Basic
+" ----------------------------
+" Line number
 set number
 
-" タイトル表示
-set title
+" for Multi-Byte Chars
+" But set to 'double', Powerline collapses.
+" set ambiwidth=double
 
-" タブをスペース2つに
+" Tab to Space
 set tabstop=2
 set expandtab
 set shiftwidth=2
 
-" インデント
+" Indent
 set smartindent
 set autoindent
+
+" Incremental search
+set incsearch
+
+" Highlight search result
+set hlsearch
+
+" Highlight curline
+set cursorline
 
 " 回り込み
 set virtualedit=block
 set whichwrap=b,s,[,],<,>
 
-" バックスペース
+" Backspace
 set backspace=indent,eol,start
 
-" ルーラー
+" Ruler
 set ruler
 
-" コマンド表示
+" Show cmmand
 set showcmd
 
-" 現在のモードを表示
-set showmode
+" Show mode
+set noshowmode
 
-" .swap を作らない
+" Show match braces
+set showmatch
+
+" trash .swap
 set noswapfile
 
-" 256色で
+"
+set showtabline=2
+
+" 256 colors
 set t_Co=256
 
-" ダークモード
+" Dark!
 set background=dark
 
-" ファイルの変更検知でリロード
+" Auto reload
 set autoread
 
-" カラースキーム
-colorscheme PaperColor 
+set laststatus=2
 
-" --------------------------------
-" Keyboard Mapping
-" --------------------------------
-" nnoremap NewKeyMap OldKeyMap
+" Color Scheme
+colorscheme PaperColor
+
+" ----------------------------
+"  Keyboard mapping
+" ----------------------------
 nnoremap s <Nop>
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
+
+" Split window (horizontal)
+nnoremap sh :<C-u>sp<CR>
+
+" Split window (vertical)
+nnoremap sv :<C-u>vs<CR>
+
+" Move window (Previous, Next)
+nnoremap wp <C-w>W
+nnoremap wn <C-w>w
 nnoremap tt <C-w>w
+
+" Move window (Left, Down, Up, Right)
+nnoremap wr <C-w>h
+nnoremap wd <C-w>j
+nnoremap wu <C-w>k
+nnoremap wl <C-w>l
+
+" No highlight
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
+
