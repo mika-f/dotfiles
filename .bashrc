@@ -7,6 +7,7 @@ fi
 
 # User specific aliases and functions
 . "$HOME/.aliases"
+. "$HOME/.env"
 
 if [ $TMUX ]; then
   fish
