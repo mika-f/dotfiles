@@ -36,7 +36,7 @@ install_vim() {
 
   print_info "Install dein.vim"
   curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > ~/installer.sh
-  chmod +x ./installer.sh
+  chmod +x ~/installer.sh
   sh ~/installer.sh ~/.vim > /dev/null 2>&1
   print_success "Vim installed"
 }

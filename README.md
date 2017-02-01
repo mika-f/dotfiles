@@ -4,6 +4,12 @@ My macOS, WSL and CentOS dotfiles.
 
 <img width="854" alt="default" src="https://cloud.githubusercontent.com/assets/10832834/19751027/30bbc566-9c31-11e6-9689-bb200d6ee2c9.PNG">
 
+
+## Requirements
+
+You can use `sudo` command and run commands on `/usr/local/bin`.
+
+
 ## Install
 **WARNING:** If you try this dotfiles, you should read the code. Use at your own risk.
 

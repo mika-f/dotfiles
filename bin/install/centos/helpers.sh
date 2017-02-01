@@ -33,6 +33,7 @@ is_installed() {
 }
 
 update() {
-  sudo yum update -y -q -e 0
+  # sudo yum update -y -q -e 0
+  sudo yum update -y
 }
 

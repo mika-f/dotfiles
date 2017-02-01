@@ -10,7 +10,7 @@ install_node() {
   ask "Would you install Node.js?"
   if get_answer; then
     git clone https://github.com/tj/n.git ~/n
-    cd ~"/n"
+    cd ~/n
     sudo make install
     sudo n latest
 
