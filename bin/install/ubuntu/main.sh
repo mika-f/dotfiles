@@ -9,6 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./node.sh"
 . "./powerline.sh"
 . "./ruby.sh"
+. "./tmux.sh"
 . "./vim.sh"
 
 update
@@ -29,8 +30,7 @@ install_ruby
 install_node
 
 print_header "UI"
-print_subheader "tmux"
-install_package "tmux"
+install_tmux
 install_fish
 install_powerline
 
