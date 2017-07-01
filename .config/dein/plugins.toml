@@ -1,0 +1,23 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]] # 言語パック
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]] # 補完
+repo = 'Shougo/deoplete.nvim'
+if = 'has("python3")'
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]] # テーマ
+repo = 'NLKNguyen/papercolor-theme'
+hook_add = '''
+  set t_Co=256
+  set background=dark
+  autocmd ColorScheme * highlight Normal ctermbg=none
+  autocmd ColorScheme * highlight LineNr ctermbg=none
+  autocmd VimEnter * nested colorscheme PaperColor
+'''
+

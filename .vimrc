@@ -19,8 +19,8 @@ if has('lua')
   call dein#add('Shougo/neocomplete.vim')
 
   " Code Snippets
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('Shougo/neosnippet')
+  " call dein#add('Shougo/neosnippet-snippets')
 endif
 
 " Comment
@@ -64,19 +64,20 @@ endif
 " ----------------------------
 "  neocomplete.vim, neosnippet
 " ----------------------------
-if !dein#check_install(['neocomplete.vim', 'neosnippet'])
+" if !dein#check_install(['neocomplete.vim', 'neosnippet'])
+if !dein#check_install(['neocomplete.vim'])
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#enable_smart_case = 1
   let g:neocomplete#min_keyword_length = 3
   let g:neocomplete#auto_completion_start_length = 1
 
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
+  " imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  " smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  " xmap <C-k> <Plug>(neosnippet_expand_target)
 
   " inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-  imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neisnippet_expand_or_jump)" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  " imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neisnippet_expand_or_jump)" : "\<TAB>"
+  " smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
   if has('conceal')
     set conceallevel=2 concealcursor=i
@@ -187,6 +188,8 @@ set autoread
 set laststatus=2
 
 " Color Scheme
+autocmd ColorScheme * highlight Normal ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none
 colorscheme PaperColor
 
 " ----------------------------
