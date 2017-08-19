@@ -1,6 +1,5 @@
 filetype off
 
-
 " -----------------------------
 "  Dein
 " -----------------------------
@@ -65,19 +64,25 @@ endif
 "  neocomplete.vim, neosnippet
 " ----------------------------
 " if !dein#check_install(['neocomplete.vim', 'neosnippet'])
-if !dein#check_install(['neocomplete.vim'])
+if !dein#check_install('neocomplete.vim')
   let g:neocomplete#enable_at_startup = 1
   let g:neocomplete#enable_smart_case = 1
-  let g:neocomplete#min_keyword_length = 3
+  " let g:neocomplete#min_keyword_length = 3
+  let g:neocomplete#sources#syntax#min_keyword_length = 3
   let g:neocomplete#auto_completion_start_length = 1
 
   " imap <C-k> <Plug>(neosnippet_expand_or_jump)
   " smap <C-k> <Plug>(neosnippet_expand_or_jump)
   " xmap <C-k> <Plug>(neosnippet_expand_target)
 
+  " inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
   " inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
   " imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neisnippet_expand_or_jump)" : "\<TAB>"
   " smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  " if !exists('g:neocomplete#force_omni_input_patterns')
+    " let g:neocomplete#force_omni_input_patterns = {}
+  " endif
+  " let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
   if has('conceal')
     set conceallevel=2 concealcursor=i
@@ -149,7 +154,7 @@ set incsearch
 set hlsearch
 
 " Highlight curline
-set cursorline
+" set cursorline
 
 " 回り込み
 set virtualedit=block
@@ -159,7 +164,7 @@ set whichwrap=b,s,[,],<,>
 set backspace=indent,eol,start
 
 " Ruler
-set ruler
+" set ruler
 
 " Show cmmand
 set showcmd
@@ -174,7 +179,7 @@ set showmatch
 set noswapfile
 
 "
-set showtabline=2
+" set showtabline=2
 
 " 256 colors
 set t_Co=256
@@ -186,10 +191,12 @@ set background=dark
 set autoread
 
 set laststatus=2
+set synmaxcol=200
 
 " Color Scheme
 autocmd ColorScheme * highlight Normal ctermbg=none
 autocmd ColorScheme * highlight LineNr ctermbg=none
+autocmd ColorScheme * highlight NonText ctermbg=none
 colorscheme PaperColor
 
 " ----------------------------
