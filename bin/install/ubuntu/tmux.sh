@@ -5,10 +5,10 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./helpers.sh"
 
 install_tmux() {
-	print_subheader "tmux"
+  print_subheader "tmux"
 
-	uninstall_package "vim"
-	install_package "automake"
+  uninstall_package "vim"
+  install_package "automake"
   install_package "libevent-dev"
 
   print_info "Compile vim from source"

@@ -5,10 +5,10 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 . "./helpers.sh"
 
 install_vim() {
-	print_subheader "Vim"
+  print_subheader "Vim"
 
-	uninstall_package "vim"
-	install_package "gettext"
+  uninstall_package "vim"
+  install_package "gettext"
   install_package "libncurses5-dev"
   install_package "lua5.2"
   install_package "lua5.2-dev"
@@ -22,7 +22,7 @@ install_vim() {
 
   sudo make distclean
   sudo make clean
-	sudo ./configure --prefix=/usr/local \
+  sudo ./configure --prefix=/usr/local \
     --enable-multibyte \
     --with-features=huge \
     --enable-luainterp \
@@ -30,7 +30,7 @@ install_vim() {
     --enable-pythoninterp \
     --enable-cscope \
     --enable-fail-if-missing
-	sudo make
+  sudo make
   sudo make install
 
   cd "$(dirname "${BASH_SOURCE[0]}")"

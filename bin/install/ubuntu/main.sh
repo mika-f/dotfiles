@@ -16,9 +16,7 @@ update
 
 print_header "Softwares"
 print_subheader "GNU Utilities"
-install_package "gcc"
-install_package "make"
-install_package "gcc-c++"
+install_package "build-essential"
 install_package "rsync"
 install_package "wget"
 install_package "curl"
