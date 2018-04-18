@@ -46,9 +46,6 @@ call dein#add('sheerun/vim-polyglot')
 " Theme
 call dein#add('NLKNguyen/papercolor-theme')
 
-" Optional
-
-
 call dein#end()
 
 
@@ -120,6 +117,7 @@ autocmd FileType typescript setlocal sw=4 sts=4 ts=4 et
 autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
+autocmd FileType perl       setlocal sw=4 sts=4 ts=4 et
 
 " ----------------------------
 "  File Type
@@ -127,6 +125,7 @@ autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
 au BufRead,BufNewFile,BufReadPre *.coffee    set filetype=coffee
 au BufRead,BufNewFile,BufReadPre *.jpbuilder set filetype=ruby
 au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
+au BufRead,BufNewFile,BufReadPre *.t         set filetype=perl
 
 " ----------------------------
 "  Basic
