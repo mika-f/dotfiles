@@ -8,19 +8,21 @@ if &compatible
 endif
 
 set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
+set pyxversion=3
 
 call dein#begin('~/.vim')
 call dein#add('Shougo/dein.vim')
 
-" Default
-if has('lua')
-  " Code completion
-  call dein#add('Shougo/neocomplete.vim')
-
-  " Code Snippets
-  " call dein#add('Shougo/neosnippet')
-  " call dein#add('Shougo/neosnippet-snippets')
+" Auto complete
+call dein#add('Shougo/deoplete.nvim')
+if !has('nvim')
+  call dein#add('roxma/nvim-yarp')
+  call dein#add('roxma/vim-hug-neovim-rpc')
 endif
+
+" deoplete languages
+call dein#add('Shougo/neco-vim')
+call dein#add('Shougo/neco-syntax')
 
 " Comment
 call dein#add('scrooloose/nerdcommenter')
@@ -58,33 +60,10 @@ if dein#check_install()
 endif
 
 " ----------------------------
-"  neocomplete.vim, neosnippet
+" deoplete
 " ----------------------------
-" if !dein#check_install(['neocomplete.vim', 'neosnippet'])
-if !dein#check_install('neocomplete.vim')
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_smart_case = 1
-  " let g:neocomplete#min_keyword_length = 3
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#auto_completion_start_length = 1
-
-  " imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  " smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  " xmap <C-k> <Plug>(neosnippet_expand_target)
-
-  " inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
-  " inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-  " imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#expandable_or_jumpable() ? "\<Plug>(neisnippet_expand_or_jump)" : "\<TAB>"
-  " smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  " if !exists('g:neocomplete#force_omni_input_patterns')
-    " let g:neocomplete#force_omni_input_patterns = {}
-  " endif
-  " let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-
-  if has('conceal')
-    set conceallevel=2 concealcursor=i
-  endif
-endif
+let g:deoplete#enable_at_startup = 1
+set completeopt+=noinsert
 
 " ----------------------------
 " nerdcommenter
@@ -141,6 +120,10 @@ set number
 set tabstop=2
 set expandtab
 set shiftwidth=2
+
+" Encoding
+set encoding=utf-8
+
 
 " Indent
 set smartindent
