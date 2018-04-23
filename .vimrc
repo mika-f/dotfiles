@@ -39,8 +39,8 @@ call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
 " Whitespace
 call dein#add('bronson/vim-trailing-whitespace')
 
-" Auto Insert `end`, `#endif` and others.
-call dein#add('cohama/lexima.vim')
+" Linter
+call dein#add('w0rp/ale')
 
 " Language Pack
 call dein#add('sheerun/vim-polyglot')
