@@ -80,6 +80,27 @@ if !dein#check_install(['powerline'])
   let g:Powerline_symbols = 'fancy'
 endif
 
+
+" ----------------------------
+"  ALE
+" ----------------------------
+let g:ale_sign_column_always = 1
+let g:ale_fix_on_save = 1
+let g:ale_linters = {
+\  'perl': ['perl', 'perlcritic']
+\}
+
+let g:ale_fixers = {
+\  'perl': ['perltidy']
+\}
+
+
+" Perl
+let g:ale_perl_perl_executable = 'perl'
+let g:ale_perl_perl_options = '-c -Mwarnings -Ilib'
+let g:ale_perl_perltidy_options = ''
+
+
 " ----------------------------
 "  Indent
 " ----------------------------
@@ -105,6 +126,7 @@ au BufRead,BufNewFile,BufReadPre *.coffee    set filetype=coffee
 au BufRead,BufNewFile,BufReadPre *.jpbuilder set filetype=ruby
 au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
 au BufRead,BufNewFile,BufReadPre *.t         set filetype=perl
+au BufRead,BufNewFile,BufReadPre *.psgi      set filetype=perl
 
 " ----------------------------
 "  Basic
