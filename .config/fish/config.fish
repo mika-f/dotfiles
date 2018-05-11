@@ -15,3 +15,5 @@ set -x RUBY_VERSION (rbenv version | awk '{print $1}')
 set -x N_PREFIX $HOME/n
 set -x PATH $N_PREFIX/bin $PATH
 
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
