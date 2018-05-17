@@ -8,7 +8,9 @@ if &compatible
 endif
 
 set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
-set pyxversion=3
+if !has('nvim')
+  set pyxversion=3
+endif
 
 call dein#begin('~/.vim')
 call dein#add('Shougo/dein.vim')
@@ -34,7 +36,12 @@ call dein#add('mattn/emmet-vim')
 call dein#add('Yggdroot/indentLine')
 
 " Powerline
-call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
+if has('nvim')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+else
+  call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
+endif
 
 " Whitespace
 call dein#add('bronson/vim-trailing-whitespace')
@@ -76,8 +83,12 @@ vmap cc <Plug>NERDCommenterToggle
 " ----------------------------
 "  Powerline
 "-----------------------------
-if !dein#check_install(['powerline'])
-  let g:Powerline_symbols = 'fancy'
+if !has('nvim')
+  if !dein#check_install(['powerline'])
+    let g:Powerline_symbols = 'fancy'
+  endif
+else
+  let g:airline_theme = 'powerlineish'
 endif
 
 
@@ -126,6 +137,7 @@ au BufRead,BufNewFile,BufReadPre *.jpbuilder set filetype=ruby
 au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
 au BufRead,BufNewFile,BufReadPre *.t         set filetype=perl
 au BufRead,BufNewFile,BufReadPre *.psgi      set filetype=perl
+au BufRead,BufNewFile,BufReadPre cpanfile    set filetype=perl
 
 " ----------------------------
 "  Basic
