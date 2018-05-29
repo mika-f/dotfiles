@@ -138,6 +138,7 @@ au BufRead,BufNewFile,BufReadPre *.scss      set filetype=sass
 au BufRead,BufNewFile,BufReadPre *.t         set filetype=perl
 au BufRead,BufNewFile,BufReadPre *.psgi      set filetype=perl
 au BufRead,BufNewFile,BufReadPre cpanfile    set filetype=perl
+au BufRead,BufNewFile,BufReadPre *.mm        set filetype=objcpp
 
 " ----------------------------
 "  Basic
