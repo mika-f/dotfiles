@@ -1,2 +1,6 @@
+# Max 150 characters, when greater than 150 chars, show as [Omitted long line with N matches]
 --max-columns=150
+
+# Ignore *.min.js and bundled JavaScript files.
+--glob=!{*.min.js,*bundle*.js}
 
