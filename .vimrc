@@ -170,7 +170,7 @@ set incsearch
 set hlsearch
 
 " Highlight curline
-" set cursorline
+set cursorline
 
 " 回り込み
 set virtualedit=block

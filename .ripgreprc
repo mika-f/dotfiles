@@ -4,3 +4,8 @@
 # Ignore *.min.js and bundled JavaScript files.
 --glob=!{*.min.js,*bundle*.js}
 
+# Types
+--type-add
+# Perl without Tests
+perlwt:*.{pl,pm}
+
