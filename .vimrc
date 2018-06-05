@@ -170,7 +170,9 @@ set incsearch
 set hlsearch
 
 " Highlight curline
-set cursorline
+if has('nvim')
+  set cursorline
+endif
 
 " 回り込み
 set virtualedit=block
