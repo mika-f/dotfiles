@@ -7,59 +7,62 @@ if &compatible
   set nocompatible " Be iMproved
 endif
 
+" TODO: Replace runtimepath and dein path to ~/.cache/dein
 set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
-if !has('nvim')
-  set pyxversion=3
-endif
 
-call dein#begin('~/.vim')
-call dein#add('Shougo/dein.vim')
+if dein#load_state('~/.vim')
+  call dein#begin('~/.vim')
+  call dein#add('Shougo/dein.vim')
 
-" Auto complete
-call dein#add('Shougo/deoplete.nvim')
-if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-endif
+  if has('neovim') || has('python3')
+    " Auto complete
+    call dein#add('Shougo/deoplete.nvim')
 
-" deoplete languages
-call dein#add('Shougo/neco-vim')
-call dein#add('Shougo/neco-syntax')
+    " Deoplate languages
+    call dein#add('Shougo/neco-vim')
+    call dein#add('Shougo/neco-syntax')
+  endif
 
-" Comment
-call dein#add('scrooloose/nerdcommenter')
+  " NeoVim like Vim
+  if !has('neovim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
 
-" Emmet
-call dein#add('mattn/emmet-vim')
+    if has('pythonx')
+      set pyxversion=3
+    end
+  endif
 
-" Indent
-call dein#add('Yggdroot/indentLine')
+  " Comment
+  call dein#add('scrooloose/nerdcommenter')
 
-" Powerline
-if has('nvim')
+  " Emmet
+  call dein#add('mattn/emmet-vim')
+
+  " Indent
+  call dein#add('Yggdroot/indentLine')
+
+  " Airline
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
-else
-  call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim'})
+
+  " Whitespace
+  call dein#add('bronson/vim-trailing-whitespace')
+
+  " Linter
+  call dein#add('w0rp/ale')
+
+  " Language Pack
+  call dein#add('sheerun/vim-polyglot')
+
+  " Theme
+  call dein#add('NLKNguyen/papercolor-theme')
+
+  call dein#end()
+  call dein#save_state()
 endif
 
-" Whitespace
-call dein#add('bronson/vim-trailing-whitespace')
-
-" Linter
-call dein#add('w0rp/ale')
-
-" Language Pack
-call dein#add('sheerun/vim-polyglot')
-
-" Theme
-call dein#add('NLKNguyen/papercolor-theme')
-
-call dein#end()
-
-
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 syntax enable
 
 if dein#check_install()
@@ -81,16 +84,9 @@ nmap cc <Plug>NERDCommenterToggle
 vmap cc <Plug>NERDCommenterToggle
 
 " ----------------------------
-"  Powerline
+"  Airline
 "-----------------------------
-if !has('nvim')
-  if !dein#check_install(['powerline'])
-    let g:Powerline_symbols = 'fancy'
-  endif
-else
-  let g:airline_theme = 'powerlineish'
-endif
-
+let g:airline_theme = 'powerlineish'
 
 " ----------------------------
 "  ALE
@@ -123,7 +119,7 @@ autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
 autocmd FileType php        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType python     setlocal sw=4 sts=4 ts=4 et
 autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et
-autocmd FileType typescript setlocal sw=4 sts=4 ts=4 et
+autocmd FileType typescript setlocal sw=2 sts=2 ts=2 et
 autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
 autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType yaml       setlocal sw=2 sts=2 ts=2 et
