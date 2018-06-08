@@ -14,6 +14,9 @@ if dein#load_state('~/.vim')
   call dein#begin('~/.vim')
   call dein#add('Shougo/dein.vim')
 
+  " Generate tmux theme from Vim
+  " call dein#add('edkolev/tmuxline.vim')
+
   if has('neovim') || has('python3')
     " Auto complete
     call dein#add('Shougo/deoplete.nvim')
