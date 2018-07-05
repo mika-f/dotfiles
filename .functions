@@ -1,0 +1,4 @@
+function ff {
+  find | rg $1 | sort
+}
+

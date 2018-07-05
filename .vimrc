@@ -106,7 +106,7 @@ let g:ale_fixers = {
 
 " Perl
 let g:ale_perl_perl_executable = 'perl'
-let g:ale_perl_perl_options = '-c -Mwarnings -Ilib'
+let g:ale_perl_perl_options = '-c -Mwarnings -Ilib -I.'
 let g:ale_perl_perltidy_options = ''
 
 

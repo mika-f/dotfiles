@@ -1,11 +1,18 @@
 # Max 150 characters, when greater than 150 chars, show as [Omitted long line with N matches]
---max-columns=150
+--max-columns=180
 
 # Ignore *.min.js and bundled JavaScript files.
---glob=!{*.min.js,*bundle*.js}
+--glob=!{*.min.js,*bundle*,*vendor*,*.map}
 
+# ====================
 # Types
---type-add
+# --------------------
+# Alias of CoffeeScript
+--type-add=coffee:*.{coffee}
+
 # Perl without Tests
-perlwt:*.{pl,pm}
+--type-add=perlwt:*.{pl,pm}
+
+# Vue sfc only
+--type-add=vue:*.{vue}
 
