@@ -1,4 +1,4 @@
 function ff {
-  find | rg $1 | sort
+  find $1 | rg $2 | sort
 }
 

@@ -90,6 +90,7 @@ vmap cc <Plug>NERDCommenterToggle
 "  Airline
 "-----------------------------
 let g:airline_theme = 'powerlineish'
+let g:airline#extensions#tabline#enabled = 1
 
 " ----------------------------
 "  ALE
@@ -221,6 +222,7 @@ colorscheme PaperColor
 " ----------------------------
 nnoremap s <Nop>
 
+
 " Split window (horizontal)
 nnoremap sh :<C-u>sp<CR>
 
@@ -230,13 +232,22 @@ nnoremap sv :<C-u>vs<CR>
 " Move window (Previous, Next)
 nnoremap wp <C-w>W
 nnoremap wn <C-w>w
-nnoremap tt <C-w>w
+" nnoremap tt <C-w>w
 
 " Move window (Left, Down, Up, Right)
 nnoremap wr <C-w>h
 nnoremap wd <C-w>j
 nnoremap wu <C-w>k
 nnoremap wl <C-w>l
+
+
+
+" New tab
+nnoremap st :<C-u>tabnew<CR>
+
+" Move tab (Previous, Next)
+nnoremap nt gt
+nnoremap pt gT
 
 " No highlight
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
