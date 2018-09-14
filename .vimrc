@@ -58,6 +58,9 @@ if dein#load_state('~/.vim')
   " Language Pack
   call dein#add('sheerun/vim-polyglot')
 
+  " Git
+  call dein#add('airblade/vim-gitgutter')
+
   " Theme
   call dein#add('NLKNguyen/papercolor-theme')
 
@@ -230,15 +233,15 @@ nnoremap sh :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 
 " Move window (Previous, Next)
-nnoremap wp <C-w>W
-nnoremap wn <C-w>w
+nnoremap pw <C-w>W
+nnoremap nw <C-w>w
 " nnoremap tt <C-w>w
 
 " Move window (Left, Down, Up, Right)
-nnoremap wr <C-w>h
-nnoremap wd <C-w>j
-nnoremap wu <C-w>k
-nnoremap wl <C-w>l
+nnoremap rw <C-w>h
+nnoremap dw <C-w>j
+nnoremap uw <C-w>k
+nnoremap lw <C-w>l
 
 
 

@@ -33,7 +33,7 @@ set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 
 # ---------------------
 # aliases
-alias vim='nvim'
+command -v nvim ; and alias vim='nvim'
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 

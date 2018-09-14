@@ -2,3 +2,6 @@ function ff {
   find $1 | rg $2 | sort
 }
 
+function lc {
+  less -R "$@"
+}
