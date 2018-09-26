@@ -221,6 +221,13 @@ autocmd ColorScheme * highlight NonText ctermbg=none
 colorscheme PaperColor
 
 " ----------------------------
+"  Cursor
+" ----------------------------
+if has('nvim')
+  let &t_EI .= "\e[6 q"
+endif
+
+" ----------------------------
 "  Keyboard mapping
 " ----------------------------
 nnoremap s <Nop>
