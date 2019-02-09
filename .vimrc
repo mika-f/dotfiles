@@ -8,10 +8,10 @@ if &compatible
 endif
 
 " TODO: Replace runtimepath and dein path to ~/.cache/dein
-set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('~/.vim')
-  call dein#begin('~/.vim')
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
   call dein#add('Shougo/dein.vim')
 
   " Generate tmux theme from Vim
