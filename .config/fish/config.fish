@@ -9,9 +9,8 @@ if test -d {$HOME}/.anyenv/bin;
 end
 
 # ---------------------
-# n configuration
-set -x N_PREFIX $HOME/n
-set -x PATH $N_PREFIX/bin $PATH
+# PATH for local bins
+test -d {$HOME}/.local/bin ; and set -x PATH "$HOME/.local/bin" $PATH
 
 # ---------------------
 # ripgrep configuration
