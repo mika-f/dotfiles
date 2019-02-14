@@ -7,7 +7,6 @@ if &compatible
   set nocompatible " Be iMproved
 endif
 
-" TODO: Replace runtimepath and dein path to ~/.cache/dein
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state('~/.cache/dein')
