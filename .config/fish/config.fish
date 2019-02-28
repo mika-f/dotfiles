@@ -1,4 +1,8 @@
 set -x TERM screen-256color
+
+# disable for large repos
+set -g theme_display_git_dirty         no
+set -g theme_display_git_untracked     no
 set -g theme_display_git_master_branch yes
 
 # ---------------------
