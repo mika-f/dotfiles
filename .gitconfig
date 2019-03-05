@@ -5,9 +5,6 @@
 [color]
   ui = auto
 
-[commit]
-  template = ~/.commit_template
-
 [core]
   editor = vim
   autocrlf = input

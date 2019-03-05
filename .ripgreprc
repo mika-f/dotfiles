@@ -1,4 +1,4 @@
-# Max 150 characters, when greater than 150 chars, show as [Omitted long line with N matches]
+# Max 180 characters, when greater than 180 chars, show as [Omitted long line with N matches]
 --max-columns=180
 
 # Ignore *.min.js and bundled JavaScript files.
