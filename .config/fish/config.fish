@@ -14,14 +14,18 @@ test -d {$HOME}/.local/bin ; and set -x PATH "$HOME/.local/bin" $PATH
 test -d {$HOME}/go/bin     ; and set -x PATH "$HOME/go/bin"     $PATH
 
 # ---------------------
-# ripgrep configuration
-set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
-
-# ---------------------
 # Android configuration
 if test -d {$HOME}/Library/Android/sdk/platform-tools;
   set -x PATH $HOME/Library/Android/sdk/platform-tools $PATH
 end
+
+# ---------------------
+# ripgrep configuration
+test -e {$HOME}/.ripgreprc ; and set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
+
+# ---------------------
+# ghq configuration
+test -d {$HOME}/Desktop/repos ; and set -x GHQ_ROOT $HOME/Desktop/repos;
 
 # ---------------------
 # aliases
