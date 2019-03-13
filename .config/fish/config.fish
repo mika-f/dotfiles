@@ -30,8 +30,8 @@ test -d {$HOME}/Desktop/repos ; and set -x GHQ_ROOT $HOME/Desktop/repos;
 
 # ---------------------
 # aliases
-command -v nvim ; and alias vim='nvim'
-command -v lsd  ; and alias ls='lsd'
+command -v -q nvim ; and alias vim='nvim'
+command -v -q lsd  ; and alias ls='lsd'
 
 # ---------------------
 # large repos
