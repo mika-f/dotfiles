@@ -11,6 +11,7 @@ end
 # ---------------------
 # PATH for local bins
 test -d {$HOME}/.local/bin ; and set -x PATH "$HOME/.local/bin" $PATH
+test -d {$HOME}/.cargo/bin ; and set -x PATH "$HOME/.cargo/bin" $PATH
 test -d {$HOME}/go/bin     ; and set -x PATH "$HOME/go/bin"     $PATH
 
 # ---------------------
@@ -30,6 +31,7 @@ test -d {$HOME}/Desktop/repos ; and set -x GHQ_ROOT $HOME/Desktop/repos;
 # ---------------------
 # aliases
 command -v nvim ; and alias vim='nvim'
+command -v lsd  ; and alias ls='lsd'
 
 # ---------------------
 # large repos
