@@ -16,7 +16,13 @@ end
 # PATH for local bins
 test -d {$HOME}/.local/bin ; and set -x PATH "$HOME/.local/bin" $PATH
 test -d {$HOME}/.cargo/bin ; and set -x PATH "$HOME/.cargo/bin" $PATH
-test -d {$HOME}/go/bin     ; and set -x PATH "$HOME/go/bin"     $PATH
+
+# if set value to $GOPATH, use it
+if test -n "$GOPATH";
+  test -d {$GOPATH}/bin  ; and set -x PATH "$GOPATH/bin" $PATH
+else
+  test -d {$HOME}/go/bin ; and set -x PATH "$HOME/go/bin" $PATH
+end
 
 # ---------------------
 # Android configuration
@@ -31,6 +37,7 @@ test -e {$HOME}/.ripgreprc ; and set -x RIPGREP_CONFIG_PATH $HOME/.ripgreprc
 # ---------------------
 # ghq configuration
 test -d {$HOME}/Desktop/repos ; and set -x GHQ_ROOT $HOME/Desktop/repos;
+test -d {$HOME}/repos         ; and set -x GHQ_ROOT $HOME/repos;
 
 # ---------------------
 # aliases
