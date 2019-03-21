@@ -1,6 +1,7 @@
 set -x TERM screen-256color
 
 # disable for large repos
+set -g theme_display_git               yes
 set -g theme_display_git_dirty         no
 set -g theme_display_git_untracked     no
 set -g theme_display_git_master_branch yes
@@ -43,12 +44,6 @@ test -d {$HOME}/repos         ; and set -x GHQ_ROOT $HOME/repos;
 # aliases
 command -v -q nvim ; and alias vim='nvim'
 command -v -q lsd  ; and alias ls='lsd'
-
-# ---------------------
-# large repos
-set -g theme_display_git           yes
-set -g theme_display_git_dirty     no
-set -g theme_display_git_untracked no
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 
