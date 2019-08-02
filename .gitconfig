@@ -10,6 +10,9 @@
   autocrlf = input
   excludesfile = ~/.gitignore_global
 
+[alias]
+  conflicts = diff --name-only --diff-filter=U
+
 [diff]
   tool = vimdiff
 
