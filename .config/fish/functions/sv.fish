@@ -1,3 +1,4 @@
 function sv
-  vim (sk -m -q $argv)
+  set -l file (sk -m -q $argv)
+  string length -q $file; and vim $file
 end
