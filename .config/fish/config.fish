@@ -48,7 +48,9 @@ test -d {$HOME}/repos         ; and set -x GHQ_ROOT $HOME/repos;
 
 # ---------------------
 # centoria configuration
-source (cet init | psub)
+if command -v -q cet;
+  source (cet init | psub)
+end
 
 # ---------------------
 # aliases
@@ -59,5 +61,6 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 
 # ----------------------
 # starship initialize
-eval (starship init fish)
-
+if command -v -q starship;
+  eval (starship init fish)
+end
