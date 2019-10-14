@@ -14,6 +14,12 @@ if test -d {$HOME}/.anyenv/bin;
 end
 
 # ---------------------
+# direnv configuration
+if command -v -q direnv;
+  direnv hook fish | source
+end
+
+# ---------------------
 # PATH for local bins
 test -d {$HOME}/.local/bin ; and set -x PATH "$HOME/.local/bin" $PATH
 test -d {$HOME}/.cargo/bin ; and set -x PATH "$HOME/.cargo/bin" $PATH
@@ -41,9 +47,17 @@ test -d {$HOME}/Desktop/repos ; and set -x GHQ_ROOT $HOME/Desktop/repos;
 test -d {$HOME}/repos         ; and set -x GHQ_ROOT $HOME/repos;
 
 # ---------------------
+# centoria configuration
+source (cet init | psub)
+
+# ---------------------
 # aliases
 command -v -q nvim ; and alias vim='nvim'
 command -v -q lsd  ; and alias ls='lsd'
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+# ----------------------
+# starship initialize
+eval (starship init fish)
 
