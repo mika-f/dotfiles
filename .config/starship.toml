@@ -1,0 +1,17 @@
+add_newline = false
+
+
+[dotnet]
+symbol = ".NET "
+
+[golang]
+symbol = "Go "
+
+[line_break]
+disabled = true
+
+[nodejs]
+symbol = "NodeJS "
+
+[rust]
+symbol = "Rust "
