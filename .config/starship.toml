@@ -1,8 +1,14 @@
 add_newline = false
 
+[aws]
+symbol = "AWS "
 
 [dotnet]
 symbol = ".NET "
+
+[git_status]
+# disabled for extra large repositories (over 10,000 commits)
+disabled = true
 
 [golang]
 symbol = "Go "
@@ -12,6 +18,12 @@ disabled = true
 
 [nodejs]
 symbol = "NodeJS "
+
+[package]
+symbol = ""
+
+[ruby]
+symbol = "Ruby "
 
 [rust]
 symbol = "Rust "

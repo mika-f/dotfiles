@@ -10,7 +10,7 @@ set -g theme_display_git_master_branch yes
 # anyenv configration
 if test -d {$HOME}/.anyenv/bin;
   set -x PATH "$HOME/.anyenv/bin" $PATH
-  status --is-interactive; and source (anyenv init -|psub)
+  anyenv init - fish | source
 end
 
 # ---------------------
