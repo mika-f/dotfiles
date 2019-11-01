@@ -22,6 +22,9 @@ symbol = "NodeJS "
 [package]
 symbol = ""
 
+[python]
+symbol = "Python "
+
 [ruby]
 symbol = "Ruby "
 
