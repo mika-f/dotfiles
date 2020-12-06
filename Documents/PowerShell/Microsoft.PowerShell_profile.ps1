@@ -6,10 +6,11 @@ Invoke-Expression (&starship init powershell)
 Set-Alias ls lsd
 Set-Alias git hub
 Set-Alias which where.exe
+Set-Alias open Invoke-Item
 
 # Replaced by Unix CoreUtils
 function Remove-Alias-When-Exists($cmd) {
-  Get-Alias $cmd *>1 && Remove-Alias $cmd
+  Get-Alias $cmd > $null && Remove-Alias $cmd
 }
 
 Remove-Alias-When-Exists cat
@@ -23,6 +24,6 @@ Remove-Alias-When-Exists rm
 function Invoke-CoreUtils($cmd) {
   Set-Variable -name "CoreUtils_$cmd" -value "function $cmd() { $cmd.exe `$args }" -scope global
   Get-Variable "CoreUtils_$cmd" -ValueOnly | Invoke-Expression
-} 
+}
 
 Invoke-CoreUtils mkdir
