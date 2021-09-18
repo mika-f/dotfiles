@@ -10,7 +10,7 @@ Set-Alias open Invoke-Item
 
 # Replaced by Unix CoreUtils
 function Remove-Alias-When-Exists($cmd) {
-  Get-Alias $cmd > $null && Remove-Alias $cmd
+  Get-Alias $cmd > $null 2>&1 && Remove-Alias $cmd
 }
 
 Remove-Alias-When-Exists cat
@@ -27,3 +27,8 @@ function Invoke-CoreUtils($cmd) {
 }
 
 Invoke-CoreUtils mkdir
+
+# Command Wrapper
+function Search-History($query) {
+  Get-Content (Get-PSReadLineOption).HistorySavePath | rg $query
+}
