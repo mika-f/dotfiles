@@ -3,6 +3,9 @@ add_newline = false
 [aws]
 symbol = "AWS "
 
+[docker_context]
+symbol = ""
+
 [dotnet]
 symbol = ".NET "
 
@@ -21,6 +24,9 @@ symbol = "NodeJS "
 
 [package]
 symbol = ""
+
+[php]
+symbol = "PHP "
 
 [python]
 symbol = "Python "
