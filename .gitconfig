@@ -1,26 +1,20 @@
-[user]
-  name = Mikazuki Fuyuno
-  email = mikazuki_fuyuno@outlook.com
-
-[color]
-  ui = auto
-
-[core]
-  editor = vim
-  autocrlf = input
-  excludesfile = ~/.gitignore_global
-
-[alias]
-  conflicts = diff --name-only --diff-filter=U
-
-[diff]
-  tool = vimdiff
-
-[push]
-  default = simple
-
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[user]
+	name = Natsune Mochizuki
+	email = me@natsuneko.cat
+[credential "helperselector"]
+	selected = manager-core
+[credential "https://git-lfs.natsuneko.moe"]
+	provider = generic
+[init]
+	defaultBranch = main
+[credential "https://huggingface.co"]
+	provider = generic
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
