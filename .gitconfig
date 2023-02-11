@@ -6,14 +6,12 @@
 [user]
 	name = Natsune Mochizuki
 	email = me@natsuneko.cat
-[credential "helperselector"]
-	selected = manager-core
 [credential "https://git-lfs.natsuneko.moe"]
+	provider = generic
+[credential "https://huggingface.co"]
 	provider = generic
 [init]
 	defaultBranch = main
-[credential "https://huggingface.co"]
-	provider = generic
 [commit]
 	gpgsign = true
 [tag]
